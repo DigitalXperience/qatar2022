@@ -1,5 +1,5 @@
 <?php
-define('DB_HOST', 'localhost');
+//define('DB_HOST', 'localhost');
 define('DB_NAME', 'exportfoot_33');
 define('DB_USER','exportfoot_patient');
 define('DB_PASSWORD','30Decembre?');
