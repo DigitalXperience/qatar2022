@@ -81,7 +81,7 @@ if(!isset($_SESSION['code'])) {
 }
 
 if($banni == "1") {
-	header('Location: https://www.33export-foot.com/can2022/index_mobile3.php?action=deconnexion');
+	header('Location: https://www.33export-foot.com/qatar2022/index_mobile3.php?action=deconnexion');
 	die();	
 }
 
@@ -291,7 +291,7 @@ if ($result2 = $mysqli->query("SELECT u.id, MAX(pr.id), pr.rencontre_id, u.oauth
 		
 		?><hr />
 		<div style="<?php if($idcompetitions == $competition['id']) { ?>background-color: non;<?php } ?> padding: 0.3em;">
-			<a href="https://www.33export-foot.com/can2022/index_pronostics_mobile3.php?idcompetition=<?php echo $competition['id']; ?>">
+			<a href="https://www.33export-foot.com/qatar2022/index_pronostics_mobile3.php?idcompetition=<?php echo $competition['id']; ?>">
 			<div class="matchScheduleTitle">
 				<!--<img src="<?php echo $competition['image']; ?>" class="exterieur" alt="" style="height:100px;cursor:pointer" >-->
 				<h1 style="cursor: pointer;width: 99%;font-family:'canal-icons';font-size: 6em;text-transform: unset;">a</h1>
@@ -300,7 +300,7 @@ if ($result2 = $mysqli->query("SELECT u.id, MAX(pr.id), pr.rencontre_id, u.oauth
 		</div>	
 		<?php } ?>
 			<hr />
-			<p style="text-align:center;"><a href="https://www.33export-foot.com/can2022/index_regles.php?idcompetition=<?php echo $competition['id']; ?>" style="width: 62%;overflow-wrap: break-word;line-height: 4em;font-size: 1.1em;height: 60px;" class="btnBet red valider_btn" ><i>u</i>Lire le règlement</a></p>
+			<p style="text-align:center;"><a href="https://www.33export-foot.com/qatar2022/index_regles.php?idcompetition=<?php echo $competition['id']; ?>" style="width: 62%;overflow-wrap: break-word;line-height: 4em;font-size: 1.1em;height: 60px;" class="btnBet red valider_btn" ><i>u</i>Lire le règlement</a></p>
 		
 		</div>
 		
@@ -404,7 +404,7 @@ $(document).ready(function()
 </div>
 
 	<footer id="sticky">
-	  © 33 Export <?php echo date('Y'); ?>  | <a href="#" id="btn_logout" style="display:inline;">Se déconnecter</a> | <a href="https://www.33export-foot.com/can2022/terms.html" style="display:inline;">Termes</a>
+	  © 33 Export <?php echo date('Y'); ?>  | <a href="#" id="btn_logout" style="display:inline;">Se déconnecter</a> | <a href="https://www.33export-foot.com/qatar2022/terms.html" style="display:inline;">Termes</a>
 
 		<!--
 		<div id="fbForceResize" style="display:none; height:20px; width:100px">&nbsp;</div>
@@ -419,7 +419,7 @@ $(document).ready(function()
 		$('#btn_logout').off('click').on('click', function(e) {
 				e.preventDefault();
 				//alert("Il essaie de se deconnecter sans facebook");
-			 window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_mobile3.php?action=deconnexion';
+			 window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_mobile3.php?action=deconnexion';
 		});
 	});
 	</script>
