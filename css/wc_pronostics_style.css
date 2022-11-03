@@ -1,0 +1,3708 @@
+/* KRDS */
+/*body, html
+{
+	overflow: hidden;
+}*/
+
+/* Post like dialog */
+.fb_edge_comment_widget{ display: none !important; }
+
+/* Commong dialog style */
+.dialog{border-left: 1px solid #555;border-right: 1px solid #555;border-bottom: 1px solid #CCC;background-color:#FFF;padding:0px;overflow:hidden;display:none}
+.dialog p, .dialog div{font-family: "lucida grande",tahoma,verdana,arial,sans-serif;font-size:13px;margin:14px}
+.ui-widget-overlay {background: #333;}
+
+/* Facebook style dialog */
+.dialog-fb.ui-dialog .ui-dialog-content{ background-color: white; border-right: 1px solid #555;border-left: 1px solid #555;}
+.dialog-fb.ui-dialog{border:0; background: #858585 no-repeat; background: rgba(82, 82, 82, 0.7);padding:10px;border-radius: 8px;-webkit-border-radius: 8px;}
+.dialog-fb.ui-dialog .ui-dialog-titlebar{background: #6D84B4;border: 1px solid #3B5998;font-family: "lucida grande",tahoma,verdana,arial,sans-serif;color: white;font-size: 14px;font-weight: bold;padding: 5px;}
+.dialog-fb.ui-dialog .ui-corner-all{-moz-border-radius: 0px;-webkit-border-radius: 0px;border-radius: 0px;}
+.dialog-fb.ui-dialog .ui-dialog-buttonpane{background: #F2F2F2; margin:0;border-left: 1px solid #555;border-right: 1px solid #555;border-bottom: 1px solid #555;padding:8px; height: 26px}
+.dialog-fb.ui-dialog .ui-dialog-buttonpane button{margin:0;padding:2px 6px; cursor:pointer; margin-left: 8px; border: 1px solid black;}
+.dialog-fb.ui-dialog .ui-dialog-buttonpane .cancelikeBoxl{background-color: #E1E0E0;border: 1px solid #999999;color: #333333;}
+.dialog-fb.ui-dialog .ui-dialog-buttonpane .cancel{background-color: #E1E0E0;border: 1px solid #999999;color: #333333;}
+.dialog-fb.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {float: right;}
+.dialog-fb .ui-widget{font-size: 13px;}
+.dialog-fb .ui-state-default, .dialog-fb.ui-widget-content .ui-state-default{border-color: #29447E;color: #FFF;background:#5972A7;}
+.dialog-fb .ui-state-active, .dialog-fb.ui-widget-content .ui-state-active{background: #4F6AA3;border-bottom-color: #29447E;box-shadow: 0 1px 0 rgba(0, 0, 0, .05); -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .05);}
+.dialog-fb .ui-button-text-only .ui-button-text {padding:0px; font-weight: bold; font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;}
+.dialog-fb .ui-widget-content { border: none; }
+.dialog-fb .ui-dialog-titlebar .ui-dialog-titlebar-close{ display: none; }
+
+
+
+/* Font Canal */
+
+@font-face {
+    font-family: 'canal-bold-it';
+    src: url('../font/canalbolditalique-webfont.eot');
+    src: url('../font/canalbolditalique-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../font/canalbolditalique-webfont.woff') format('woff'),
+		url('../font/canalbolditalique-webfont.ttf') format('truetype'),
+		url('../font/canalbolditalique-webfont.svg#Canal+BoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'canal-bold';
+    src: url('../font/canalboldromain-webfont.eot');
+    src: url('../font/canalboldromain-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../font/canalboldromain-webfont.woff') format('woff'),
+		url('../font/canalboldromain-webfont.ttf') format('truetype'),
+		url('../font/canalboldromain-webfont.svg#Canal+Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'canal';
+    src: url('../font/canaldemiromain-webfont.eot');
+    src: url('../font/canaldemiromain-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../font/canaldemiromain-webfont.woff') format('woff'),
+		url('../font/canaldemiromain-webfont.ttf') format('truetype'),
+		url('../font/canaldemiromain-webfont.svg#Canal+DemRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'canal-demi-it';
+    src: url('../font/canaldemitalique-webfont.eot');
+    src: url('../font/canaldemitalique-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../font/canaldemitalique-webfont.woff') format('woff'),
+		url('../font/canaldemitalique-webfont.ttf') format('truetype'),
+		url('../font/canaldemitalique-webfont.svg#Canal+DemItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*@font-face {
+    font-family: 'canal-light-it';
+    src: url('../font/canallightitalique-webfont.eot');
+    src: url('../font/canallightitalique-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../font/canallightitalique-webfont.woff') format('woff'),
+		url('../font/canallightitalique-webfont.ttf') format('truetype'),
+		url('../font/canallightitalique-webfont.svg#Canal+Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}*/
+
+@font-face {
+    font-family: 'canal-light';
+    src: url('../font/canallightromain-webfont.eot');
+    src: url('../font/canallightromain-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../font/canallightromain-webfont.woff') format('woff'),
+		url('../font/canallightromain-webfont.ttf') format('truetype'),
+		url('../font/canallightromain-webfont.svg#Canal+Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'canal-icons';
+	src:url('../font/canal-icons.eot');
+	src:url('../font/canal-icons.eot?#iefix') format('embedded-opentype'),
+		url('../font/canal-icons.woff') format('woff'),
+		url('../font/canal-icons.ttf') format('truetype'),
+		url('../font/canal-icons.svg#canal-icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Old app CSS */
+
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #444444;
+	font-family: 'Work Sans', sans-serif;
+	/*overflow: hidden;*/
+	/*background: url(../img/bg.jpg) repeat;*/
+}
+h1, h2, h3, h4, h5, p
+{
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+h1
+{
+	font-size:24px;
+}
+h2
+{
+	font-size:20px;
+}
+h3
+{
+	font-size:16px;
+}
+h4
+{
+	font-size:14px;
+}
+h5
+{
+	font-size:12px;
+}
+ul
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}legendTrophies
+p
+{
+	margin:0;
+	padding:0;
+}
+a
+{
+	outline:none;
+	margin:0;
+	padding:0;
+	text-decoration:none;
+	color:#000;
+}
+a:hover
+{
+	text-decoration:underline;
+}
+img
+{
+	border:none;
+}
+.clearfix
+{
+	overflow: hidden;
+}
+i {
+    display: inline-block;
+    font: 24px/1 'canal-icons';
+    font-style: normal;
+    text-transform: none !important;
+    vertical-align: middle;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.6;
+}
+
+/*****  ******/
+.container
+{
+	width:760px;
+	margin:0 auto;
+}
+header {
+	background: #FFF;
+}
+.fanContainer
+{
+    background:url(../img/bg_tab_top.jpg) no-repeat;
+    overflow: hidden;
+}
+.tabInner {
+	background:url(../img/bg_tab_btm.jpg) 0 215px no-repeat;
+	height: 481px;
+    overflow: hidden;
+}
+.likeBox
+{
+    width: 217px;
+    height: 84px;
+    margin: 230px 0 0 206px;
+    padding: 20px 0 0 194px;
+    background:url(../img/bg_nonfan.png) no-repeat;
+}
+.fbLike {
+	width: 70px;
+	height: 22px;
+	position: relative;
+}
+.fbLike .fb_iframe_widget {
+	display: block;
+}
+.fbLike .fb_iframe_widget span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	clip: rect(0,69px,20px,0);
+}
+.likeBox iframe
+{
+	margin-left: 12px;
+}
+
+.btnPlay
+{
+    width: 416px;
+    height: 74px;
+    background:url(../img/btn_play.png) no-repeat;
+	margin: 230px auto 0;
+    display: block;
+    text-indent: -9999px;
+}
+.btnPlay:hover
+{
+    background-position: left bottom;
+}
+.canal_header .partnerText
+{
+    color: #FFFFFF;
+    float: right;
+    font-family: 'canal-bold-it';
+    font-size: 11px;
+    font-weight: bold;
+    margin: 20px 5px 0 0;
+    text-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+    text-transform: uppercase;
+}
+.content_container
+{
+	border-top:none;
+	background:#fff;
+	padding:0;
+	min-height: 600px;
+}
+.content_container_classement
+{
+	border-top:none;
+	background:#fff;
+	padding:17px 0;
+	min-height: 600px;
+}
+.welcomeBlock {
+	background:url(../img/welcome.jpg) no-repeat;
+	color:#ffffff;
+	font-family: canal;
+	font-size:17px;
+	text-shadow:0 4px 4px rgba(0,0,0,.39);
+	min-height: 606px;
+	padding: 280px 0 0 0;
+}
+.welcomeContent {
+    background: url("../img/bg_welcome.png") no-repeat;
+    margin: 0 -34px;
+	height: 375px;
+	text-align: center;
+}
+.welcomeContent > div {
+	text-align: left;
+	width: 350px;
+	padding-top: 45px;
+	margin: 0 auto 10px;
+}
+.welcomeBlock h2 {
+	font-size:29px;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	font-family: 'canal-bold';
+}
+.welcomeBlock h2 span {
+	display:block;
+	font-size:27px;
+}
+.league {
+	background: url(../img/icon_league.png) no-repeat;
+	line-height: 1.2;
+	padding: 0 0 20px 90px;
+}
+.welcomeBlock .button i {
+	font-size:33px;
+}
+.logo,.logo h1 {
+    float: left;
+	overflow:hidden;
+}
+.logo h1 a {
+	display: block;
+    height: 111px;
+    text-indent: -9999px;
+    margin-top: 2px;
+    margin-left: 20px;
+    width: 111px;
+    background: url(../img/logo.jpg) no-repeat;
+    background-size: 110px;
+}
+.logo h2 {
+    /*background: url(../img/FIFA_World_Cup_2018_Logo.png) no-repeat left center;*/
+    background-size: 100px;
+    color: #E53245;
+    float: left;
+    font-size: 27px;
+    margin: 2px 0 0 5px;
+    padding: 10px 0 10px 25px;
+    line-height: 80px;
+    text-shadow: 0 2px 9px rgba(0, 0, 0, 0.73);
+    text-transform: uppercase;
+    height: 90px;
+}
+.partnerLogo {
+    background: url("../img/partner.png?v=2") no-repeat;
+    float: right;
+    height: 45px;
+	border: 1px solid #444B69;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin: 12px 10px 12px 0;
+    width: 300px;
+}
+/********Home Page******/
+.tpContainer
+{
+	float:left;
+	overflow:hidden;
+	margin:17px 0 0;
+	height: 810px;
+}
+.tpContainer .tpHelp{
+	margin-bottom: 15px;
+}
+
+.right_content
+{
+	float:right;
+}
+.right_content ul.podium li
+{
+	cursor: default;
+}
+.discovery
+{
+    background-color:#EDEDED;
+}
+.addTopSpace
+{
+	margin:15px 0 0 0;
+}
+.discovery iframe
+{
+	margin: 0px;
+	height: 250px;
+	width: 300px;
+}
+a.make_your_predictions,a.valider_btn, input.make_your_predictions
+{
+	background:url(../img/make_your_predictions.jpg) no-repeat;
+	width:316px;
+	height:40px;
+	margin:0 auto;
+	text-indent:-9999px;
+	display:block;
+	border: 0;
+	cursor: pointer;
+	clear:both;
+}
+a.make_your_predictions:hover,a.valider_btn:hover, input.make_your_predictions:hover
+{
+	background-position: bottom;
+}
+a.valider_btn
+{
+	background:url(../img/valider_btn.gif) no-repeat;
+	width:319px;
+	margin:34px 0 0;
+}
+div.crownBlock {
+    background-color: #F7F7F7;
+    border: 1px solid #ECECEC;
+    color: #000000;
+    /*font-family: canal-bold;*/
+    overflow: hidden;
+    padding: 10px;
+	font-size:14px;
+}
+.imageCover {
+	float:left;
+	border:2px solid #e5b700;
+	margin:0 20px 0 0;
+	position:relative;
+}
+.imageCover img {
+	height:63px;
+}
+.imageCover:after {
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid #E5B700;
+    border-top: 4px solid transparent;
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 30px;
+}
+.userBlock {
+	float:left;
+	width:210px;
+	font-family: 'canal-bold';
+	color:#000000;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+.userBlock span {
+	color:#e5b700;
+}
+.userBlock .name a{
+    color: #F09800;
+	font-size: 17px;
+    padding: 0 10px 0 0;
+}
+.userPts {
+	color:#6f6f6f;
+	font-size: 15px;
+	font-family: 'canal-light';
+}
+.crown {
+	margin-bottom:15px;
+}
+.crown i {
+    color: #E5B700;
+    float: left;
+    margin: 0 5px 0 0;
+	font-size: 30px;
+}
+.crown p {
+	overflow: hidden;
+}
+.crown p span {
+	color:#E5B700;
+}
+.classementLink {
+	text-align:right;
+	font-weight:normal;
+	font-family:arial;
+}
+.classementLink a {
+    color: #444444;
+    font-size: 11px;
+    text-decoration: underline;
+    text-transform: none;
+}
+.classementLink a:hover {
+	text-decoration: none;
+}
+/****** Best Team & Bad Team page*********/
+p.description
+{
+	color: #888787;
+    font-size: 12px;
+    text-align: center;
+}
+.descBlock {
+	clear: both;
+	padding-top: 20px;
+}
+.txtLeft
+{
+	text-align: left !important;
+}
+ol.b_b_team {
+	list-style-position: inside;
+}
+.b_b_team
+{
+	overflow:hidden;
+	clear:both;
+	width:325px;
+    /*position: relative;*/
+}
+
+.b_b_team_edit{
+	margin-left: 65px;
+	cursor: move;
+}
+
+.b_b_team li, .podium li
+{
+	background-color: #FAFAFA;
+
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 33px;
+    line-height: 35px;
+    overflow: hidden;
+    padding: 2px 5px;
+    position: relative;
+    width: 311px;
+}
+
+.b_b_team li:nth-child(2n+1){
+	background-color:#F1F1F1;
+}
+
+.b_b_team_edit li:hover{
+	background-color:#E9E9E9 !important;
+}
+
+.ui-state-highlight{
+	border: 2px dashed #CCC;
+	background: #FFF !important;
+	width: 282px !important;
+	text-indent: -9999px;
+}
+
+.podium li.adjustSize, .b_b_team li.adjustSize
+{
+	width: 286px;
+}
+.b_b_team li b, .podium li b
+{
+	float: left;
+}
+.podium li.adjustSize b, .b_b_team li.adjustSize b
+{
+	width: 175px;
+	float: left;
+}
+.b_b_team li b.sNo
+{
+    float: left;
+    text-align: center;
+    width: 50px;
+}
+ul.podium li em
+{
+	color: #3B5998;
+    cursor: pointer;
+    float: right;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 30px !important;
+    margin-right: 5px;
+}
+ul.podium li em:hover
+{
+	text-decoration: underline;
+}
+.b_b_team li span, ul.podium li span
+{
+	background-position:center center;
+	background-repeat: no-repeat;
+	display:block;
+	float:left;
+	height:30px;
+	margin: 0 3px 0 10px;
+	width:50px;
+}
+.best_team img.ads
+{
+	margin:0 0 20px;
+	float: none;
+}
+.best_team .b_b_team
+{
+	float:right;
+	margin:0 0 20px;
+}
+.best_team .b_b_team li.bdr
+{
+	border-top:2px solid #77c12c;
+}
+.best_team ul
+{
+	border:2px dashed #EEEEEE;
+	height:34px;
+	margin-bottom:8px;
+}
+.valider_btn
+{
+	background:url(../img/valider_btn.gif) no-repeat;
+	border: none;
+	height:40px;
+	margin:8px 0 15px;
+	width:320px;
+	cursor: pointer;
+}
+.btn_valider_ranking {
+	/*background:url(../img/btn_valider_ranking.gif) no-repeat;*/
+	background: #5B9701;
+    color: #FFF;
+    font: 19px/2.2 'canal-bold-it';
+    text-indent: 0;
+}
+.btn_valider_ranking i {
+	margin: 0 5px 6px 0;
+	font: 21px/1 'canal-icons';
+}
+.valider_btn:hover
+{
+	/*background-position: bottom;*/
+	background: #fff;
+    color: #5B9701;
+}
+
+.reminder{
+	color: #666;
+}
+
+
+/*** Error ***/
+.error
+{
+	background: #ffe6e6;
+	border: 1px solid #ba251f;
+	color: #BA251F;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.errorContainer
+{
+	height: 29px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+p.selectBox, .success
+{
+	background: #BEE3A6;
+	color: #23410F;
+	font-size: 12px;
+	margin: 10px 0;
+	padding: 8px 10px;
+	text-align: left;
+	border-radius: 3px;
+	font-weight: bold;
+}
+.postBetSuccess {
+	margin-bottom: 20px;
+}
+.success .nextAction {
+	margin-top: 6px;
+}
+.success .nextAction a {
+	font-size: 13px;
+	color: #2E7002;
+	background: #d2f5bc;
+	padding: 3px 4px;
+}
+.success .nextAction a:hover {
+	text-decoration: none;
+	background: #ddf9cc;
+}
+/*.userComment
+{
+	height: 137px;
+    overflow: hidden;
+    width: 407px;
+}
+.userComment
+{
+	margin-top: 7px;
+	padding-top: 50px;
+}
+.userComment .fb_iframe_widget iframe
+{
+	bottom: 45px;
+}*/
+.btnChooseTeam
+{
+	background: url(../img/btn_choose_my_team.gif) no-repeat left top;
+	display: block;
+	height: 40px;
+	width: 365px;
+	margin:30px auto 10px;
+    text-indent:-9999px;
+}
+.btnValidateTeam
+{
+	background: url(../img/btn_validate_my_team.gif) no-repeat left top;
+	display: block;
+	height: 40px;
+	width: 378px;
+	margin:30px auto 10px;
+    text-indent:-9999px;
+}
+.btnChooseYourTeam
+{
+	background: url(../img/btn_choose_your_team.gif) no-repeat left top;
+	display: block;
+	height: 40px;
+	width: 426px;
+	margin:30px auto 10px;
+    text-indent:-9999px;
+}
+.btnCreateMyRanking
+{
+	background: url(../img/btn_create_my_ranking.gif) no-repeat left top;
+	display: block;
+	height: 40px;
+	width: 275px;
+	margin:15px auto 10px;
+    text-indent:-9999px;
+}
+.btnChangeMyRanking
+{
+	background: url(../img/btn_change_my_ranking.gif) no-repeat left top;
+	display: block;
+	height: 40px;
+	width: 275px;
+	margin:15px auto 10px;
+    text-indent:-9999px;
+}
+.btnConfirmPredictions
+{
+	background: url(../img/btn_confirm_predictions.gif) no-repeat left top;
+	display: block;
+	height: 40px;
+	width: 314px;
+	margin:15px auto 10px;
+    text-indent:-9999px;
+}
+.btnChooseTeam:hover, .btnValidateTeam:hover, .btnChooseYourTeam:hover, .btnCreateMyRanking:hover, .btnChangeMyRanking:hover, .btnConfirmPredictions:hover
+{
+	background-position: left bottom;
+}
+.publishMsg
+{
+	color: #666666;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.chooseTeam, .createLeague {
+	margin: 20px 0;
+	color: #888;
+}
+.chooseTeam p {
+	margin-bottom: 20px;
+}
+.chooseTeam > a, .createLeague > a {
+	margin-left: 45px;
+	display: inline-block;
+}
+.flagText {
+	background: url(../img/icon_flag.png) no-repeat;
+	color: #888;
+	min-height: 40px;
+	padding-left: 45px;
+	margin-bottom: 20px;
+}
+.inviteText {
+	background: #f4f4f4;
+	font-size: 13px;
+	text-transform: uppercase;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+.inviteText span {
+	color: #590;
+}
+/*ul.myTrophies
+{
+	overflow: hidden;
+	margin: 10px 7px;
+}
+ul.myTrophies li.award span, ul.myTrophies li.silver span, ul.myTrophies li.gold span
+{
+	background:#5a9900 url(../img/bg_award.gif) no-repeat left top;
+	display: block;
+    height: 31px;
+    text-indent: -999em;
+    width: 734px;
+	border-bottom: 1px solid #fff;
+	cursor: pointer;
+}
+ul.myTrophies li.silver span
+{
+	background:#5a9900 url(../img/bg_silver_trophy.gif) no-repeat left top;
+}
+ul.myTrophies li.gold span
+{
+	background:#5a9900 url(../img/bg_gold_trophy.gif) no-repeat left top;
+}
+ul.myTrophies li.award span:hover, ul.myTrophies li.silver span:hover, ul.myTrophies li.gold span:hover
+{
+	background-position: left bottom;
+	border-bottom: 1px solid #CCCCCC;
+}
+ul.myTrophies li.active span
+{
+	background-position: left bottom;
+	border-bottom: 1px solid #CCCCCC;
+}*/
+.myTrophies {
+	margin: 10px 0 15px;
+}
+.myTrophies .head {
+	font: 16px "canal-bold";
+	text-transform: uppercase;
+	padding: 10px;
+	cursor: pointer;
+}
+.myTrophies li {
+	color: #fff;
+	overflow: hidden;
+}
+.myTrophies .head i {
+	margin-right: 10px;
+}
+.myTrophies .c, .myTrophies .e {
+	font: 25px/1 "canal";
+	float: right;
+}
+.myTrophies li.active .c {
+	display: none;
+}
+.myTrophies .e {
+	padding-right: 5px;
+	line-height: 0.6;
+	display: none;
+}
+.myTrophies li.active .e {
+	display: block;
+}
+.myTrophies li.bronze.active {
+	color: #ff9f6a;
+}
+.myTrophies li.silver.active {
+	color: #bbb;
+}
+.myTrophies li.gold.active {
+	color: #e8cc13;
+}
+.myTrophies li.bronze .head {
+	background: #ff9f6a;
+}
+.myTrophies li.silver .head {
+	background:  #bbb;
+}
+.myTrophies li.gold .head {
+	background:  #e8cc13;
+}
+.myTrophies li.active .head {
+	background: #fff;
+	border-bottom: 2px solid;
+}
+.trophiesList {
+	background: #f4f4f4;
+	padding: 0 15px;
+	margin-bottom: -2px;
+}
+.trophiesList .legendTrophies {
+	border: none;
+	font: 12px "canal-demi-it";
+	color: #444;
+	text-transform: uppercase;
+	word-wrap: break-word;
+	padding: 10px 0 5px 600px;
+}
+.trophiesList .legendTrophies + li {
+	padding-top: 0;
+}
+.trophiesList li {
+	border-bottom: 1px solid #ccc;
+	padding: 15px 0;
+}
+.trophiesList li.img_disabled figure {
+	background: url(../img/trophies/trophy_disabled.jpg) no-repeat;
+}
+.trophiesList .img_disabled img {
+	display: none;
+}
+.trophiesList li > * {
+	display: inline-block;
+	vertical-align: middle;
+	word-wrap: break-word;
+}
+.lt-ie8 .trophiesList li > * {
+	display: inline;
+}
+.trophiesList figure {
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	margin: 0 5px 0 0;
+	padding: 0;
+}
+.trophiesList figure img {
+	width: 100%;
+}
+.trophiesList h4, .trophiesList .points {
+	font: 12px "canal-bold";
+	color: #888;
+	text-transform: uppercase;
+	margin-right: 5px;
+}
+.trophiesList h4 {
+	color: #000;
+	width: 190px;
+}
+.trophiesList .points {
+	font-size: 13px;
+	text-align: center;
+	width: 85px;
+}
+.trophiesList p {
+	color: #888;
+	width: 345px;
+	margin-right: 5px;
+}
+.trophiesList .btnShare {
+	margin: 0;
+	font-size: 10px;
+}
+/*ul.trophiesList
+{
+	overflow: hidden;
+}
+ul.trophiesList li
+{
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+
+ul.trophiesList li .lineTrophie
+{
+    float: left;
+    padding: 5px 10px 5px 0;
+    width: 590px;
+}
+ul.trophiesList li .lineTrophie strong
+{
+	display: inline-block;
+	width: 150px;
+	padding-top: 9px;
+}
+
+ul.trophiesList li .lineTrophie p
+{
+	display: inline-block;
+	width: 342px;
+	font-size: 11px;
+	color: #666;
+	font-weight: bold;
+}
+
+ul.trophiesList li .lineTrophie em
+{
+	display: inline-block;
+	font-style: normal;
+	font-weight: bold;
+	color: #555;
+}
+
+ul.trophiesList li.img_disabled strong
+{
+	color: #999;
+}
+
+ul.trophiesList li.img_disabled p
+{
+	color: #AAA;
+	font-weight: normal;
+}
+
+ul.trophiesList li.img_disabled em
+{
+	color: #999;
+}
+.legendTrophies{
+	border: 0 !important;
+	padding: 7px 0 5px 0;
+	padding-left: 518px;
+	font-family: Canal;
+	font-weight: bold;
+	font-style: italic;
+	text-transform: uppercase;
+	color: #999;
+	background: #FAFAFA;
+	font-size: 10px;
+}
+
+ul.trophiesList li .lineTrophie img.img_active
+{
+	float: left;
+	width: 32px;
+	margin-right: 10px;
+	margin-left: 5px;
+}
+ul.trophiesList li .lineTrophie img.img_disabled
+{
+	float: left;
+    visibility: hidden;
+    width: 32px;
+	margin-right: 10px;
+	margin-left: 5px;
+}
+ul.trophiesList li .lineTrophie p.txtTrophie
+{
+	float: left;
+	padding-top: 9px;
+	width: 500px;
+	text-align: left;
+	padding-left: 10px;
+}*/
+ul.trophiesList li .a_disabled a, ul.trophiesList li .a_active a
+{
+	background: rgb(120,140,184);
+	background: -moz-linear-gradient(top, rgba(120,140,184,1) 1%, rgba(89,114,167,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(120,140,184,1)), color-stop(100%,rgba(89,114,167,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(120,140,184,1) 1%,rgba(89,114,167,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(120,140,184,1) 1%,rgba(89,114,167,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(120,140,184,1) 1%,rgba(89,114,167,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(120,140,184,1) 1%,rgba(89,114,167,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#788cb8', endColorstr='#5972a7',GradientType=0 ); /* IE6-9 */
+	color: white;
+	font-weight: bold;
+	padding: 5px 10px;
+	text-align: center;
+	display: inline-block;
+	border-radius: 3px;
+	margin-top: 7px;
+	float: right;
+	margin-right: 6px;
+	border: 1px solid #697eac;
+}
+ul.trophiesList li .a_active a:hover
+{
+	background: rgb(89,114,167); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(89,114,167,1) 0%, rgba(120,140,184,1) 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(89,114,167,1)), color-stop(99%,rgba(120,140,184,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(89,114,167,1) 0%,rgba(120,140,184,1) 99%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(89,114,167,1) 0%,rgba(120,140,184,1) 99%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(89,114,167,1) 0%,rgba(120,140,184,1) 99%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(89,114,167,1) 0%,rgba(120,140,184,1) 99%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5972a7', endColorstr='#788cb8',GradientType=0 ); /* IE6-9 */
+	text-decoration: none;
+}
+ul.trophiesList li .a_disabled a
+{
+	display: none;
+}
+
+
+/****** Trophies Popup *********/
+.trophiesBlock h2 {
+	background-color: #669900;
+	color: #fff;
+	font-size: 18px;
+	font-family: 'canal';
+	border-radius: 2px;
+	display: inline-block;
+    letter-spacing: 2.9px;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+}
+.trophiesBlock .pictureBlock {
+	margin-left: 125px;
+    overflow: hidden;
+    width: 485px;
+}
+.pictureBlock img {
+	float: left;
+}
+.pictureBlock .contentBlock {
+	float: left;
+	margin-left: 20px;
+	width: 260px;
+	color: #454547;
+	font-size: 24px;
+	margin: 30px 0 0 20px;
+	font-family: 'canal';
+	font-style: italic;
+}
+.contentBlock h1 {
+	margin-bottom: 10px;
+}
+.contentBlock p {
+	font-size: 14px;
+	font-family: 'canal';
+	font-style: italic;
+}
+.trophiesBlock .btnClose {
+	background: #669900;
+	color: #fff;
+	font-size: 18px;
+	font-family: 'canal';
+	border-radius: 2px;
+	font-style: italic;
+	width: 562px;
+    text-transform: uppercase;
+    margin: 20px auto;
+    padding: 5px 10px;
+}
+.btnClose:hover {
+	background: none;
+	color: #669900;
+	text-decoration: none;
+}
+.btnPrev {
+	background: url("../img/btn_prev.png") no-repeat;
+	width: 35px;
+	height: 37px;
+	position: absolute;
+	top: 150px;
+	left: 20px;
+	text-indent: -999em;
+	cursor: pointer;
+}
+.btnNext {
+	background: url("../img/btn_next.png") no-repeat;
+	width: 35px;
+	height: 37px;
+	position: absolute;
+	top: 150px;
+	right: 20px;
+	text-indent: -999em;
+	cursor: pointer;
+}
+.btnPrev:hover, .btnNext:hover {
+	background-position: left bottom;
+}
+
+/****** Favorite team *********/
+/*ul.team_list
+{
+	overflow: hidden;
+	margin: 0 17px;
+}
+ul.team_list li
+{
+	float: left;
+	margin:0 7px 7px 0;
+}
+a.team_btn
+{
+    background:url("../img/team_btn.gif") no-repeat scroll left top transparent;
+    color:#474747;
+    display:block;
+    float:left;
+    font-family:Arial;
+    font-size:14px;
+    font-style:italic;
+    font-weight:bold;
+    height:27px;
+    line-height:26px;
+    padding:10px 0;
+    text-align:center;
+    text-decoration:none;
+    text-transform:uppercase;
+    width:168px;
+}
+a.team_btn:hover
+{
+    background-position:left -47px;
+    text-decoration: none;
+}
+a.team_active, a.team_active:hover
+{
+    background-position:left bottom;
+}
+a.team_btn span
+{
+    background-position:center center;
+    background-repeat:no-repeat;
+    display:block;
+    float:left;
+    height:30px;
+    margin-right:0;
+    width:40px;
+}*/
+.bestForm {
+	text-align: center;
+}
+.bestForm .error {
+	margin: 0 20px 20px;
+}
+.teamList {
+	text-align: left;
+	margin: 20px -15px 20px 15px;
+	overflow: hidden;
+}
+.teamList li {
+	width: 175px;
+	margin: 0 10px 10px 0;
+	float: left;
+}
+.teamList a {
+	background: #ebebeb;
+	border: 1px solid #fff;
+	font-size: 0;
+	line-height: 52px;
+	display: block;
+	padding: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 1px #ccc;
+	-moz-box-shadow: 0 0 1px #ccc;
+	box-shadow: 0 0 1px #ccc;
+}
+.teamList a.team_active {
+	background: #5a9900;
+	color: #fff;
+	-webkit-box-shadow: 0 0 1px #ccc, 0 0 20px #9c3 inset;
+	-moz-box-shadow: 0 0 1px #ccc, 0 0 20px #9c3 inset;
+	box-shadow: 0 0 1px #ccc, 0 0 20px #9c3 inset;
+}
+.teamList figure {
+	background: url("../img/bg_team_logo.png") no-repeat;
+	display: inline-block;
+	text-align: center;
+	width: 59px;
+	height: 52px;
+	margin-right: 10px;
+}
+.teamList .name {
+	font: 11px 'canal-bold-it';
+	text-transform: uppercase;
+	display: inline-block;
+	width: 90px;
+	vertical-align: middle;
+	word-break: break-all;
+}
+
+
+/*** Menu ***/
+.menu {
+    clear: both;
+	background: #E53245; /* Old browsers */
+	background: #bf2837; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bf2837 0%, #E53245 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bf2837), color-stop(100%,#E53245)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #bf2837 0%,#E53245 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #bf2837 0%,#E53245 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #bf2837 0%,#E53245 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #bf2837 0%,#E53245 100%) /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf2837', endColorstr='#E53245',GradientType=0 ); /* IE6-9 */
+
+}
+ul.menu:after {
+	 content: ".";
+	 display: block;
+	 height: 0;
+	 clear: both;
+	 visibility: hidden;
+}
+*+html .menu {
+	display:inline-block;
+	height: 1%;
+}
+.menu li {
+	float:left;
+	/*background:url(../img/menu-sep.png) no-repeat left top;*/
+	padding:0 0 0 2px;
+}
+.menu li:first-child {
+	background:none;
+	padding:0;
+}
+.menu li a {
+    display:block;
+	font-size:14px;
+	color:#fff;
+	text-transform:uppercase;
+	padding:14px 14px 13px;
+	position:relative;
+}
+.menu li:hover a {
+	background: #910202; /* Old browsers */
+	background: #bf2837; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bf2837 0%, #b20101 2%, #910202 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bf2837), color-stop(2%,#b20101), color-stop(100%,#910202)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #bf2837 0%,#b20101 2%,#910202 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #bf2837 0%,#b20101 2%,#910202 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #bf2837 0%,#b20101 2%,#910202 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #bf2837 0%,#b20101 2%,#910202 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf2837', endColorstr='#910202',GradientType=0 ); /* IE6-9 */
+
+}
+.menu li a.active {
+	background:#fff;
+	color:#000;
+	border:1px solid #c7c7c7;
+	padding:14px 16px 13px;
+	background: #fff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fff 0%, #e0e0e0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fff 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fff 0%,#e0e0e0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fff 0%,#e0e0e0 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #fff 0%,#e0e0e0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
+
+}
+.menu li a.active:after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #e0e0e0;
+    bottom: -8px;
+    content: "";
+    left: 50%;
+    margin-left: -4px;
+    position: absolute;
+}
+.menu a:hover {
+	text-decoration: none;
+}
+.menu a.active:hover {
+}
+
+
+/**** notifications ***/
+.notifications {
+	background: #f4f4f4;
+	color: #444;
+	padding: 15px 15px 25px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.notifications i {
+	font-size: 20px;
+	float: left;
+	margin-right: 5px;
+}
+.notifications h4, .notifications h5 {
+	margin-bottom: 12px;
+}
+.notifications > div, .notifications > div > div {
+	float: left;
+}
+.notifications label {
+	background: url("../img/sprite_checkbox.png") left bottom no-repeat;
+	font: 12px 'canal-bold';
+	text-transform: uppercase;
+	display: inline-block;
+	margin-right: 10px;
+	padding-left: 20px;
+	position: relative;
+	overflow: hidden;
+}
+.notifications label input {
+	position: absolute;
+	left: -99px;
+}
+.notifications label.checked {
+	background-position: left top;
+	color: #518f00;
+}
+.notifications .email {
+	border-right: 1px dashed #fff;
+	padding-right: 50px;
+}
+.notifications .fb {
+	border-left: 1px dashed #ccc;
+	padding-left: 50px;
+}
+
+/*** fb comment  ***/
+.userComment {
+	margin: 15px 0;
+}
+
+/*** rankingPodium ***/
+.rankingPodium {
+	color: #000;
+	float: left;
+	width: 370px;
+}
+.rankingPodium li {
+	background: #f6f6f6;
+	border-bottom: 1px solid #e0e0e0;
+	border-right: 1px solid #e0e0e0;
+	border-top: 1px solid #fff;
+	height: 55px;
+	line-height: 55px;
+	overflow: hidden;
+}
+.rankingPodium li > * {
+	line-height: 1;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.rankingPodium .rank {
+	background: url("../img/bg_rank_mono.png") left bottom no-repeat;
+	font: 11px/25px 'canal-bold-it';
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	padding-right: 8px;
+}
+.rankingPodium .first .rank{
+	background-image: url("../img/bg_rank.png");
+}
+.rankingPodium figure {
+	width: 32px;
+	height: 32px;
+	overflow: hidden;
+}
+.rankingPodium figure img {
+	width: 100%;
+}
+.rankingPodium h4 {
+	font: 10px 'canal-bold-it';
+	text-transform: uppercase;
+}
+.rankingPodium li.first{
+	background: #e5f1d5;
+}
+
+.rankingPodium li.first a {
+	color: #5a9900;
+}
+
+.rankingPodium li.last {
+	background: #ededed;
+}
+
+.rankingPodium li.last a {
+	color: #ED1C24;
+}
+
+
+/****** Footer *********/
+a.make_your_predictions:hover, a.valider_btn:hover
+{
+	background-position:left bottom;
+}
+.footer
+{
+	background-color:#E53245;
+	height:30px;
+	padding:inherit;
+	padding:0 15px;
+	overflow: hidden;
+}
+.footer img
+{
+	margin:0 15px 0 0;
+	float:left;
+}
+.footer a
+{
+	font-size:12px;
+	color:#fff;
+	font-weight:bold;
+	margin: 8px 15px 0;
+	text-decoration:none;
+	float:left;
+}
+.footer a:hover
+{
+	text-decoration:underline;
+}
+a.footerLogo {
+	margin: 0;
+}
+/*** challenge home page ***/
+.pronostic
+{
+	margin: 22px 0 45px 0;
+	text-align: center;
+}
+.classement
+{
+	margin: 18px 0 0 0;
+}
+.classement .general
+{
+	margin: 0 52px 0 13px;
+}
+.classement span
+{
+	font:bold 11px arial;
+	color: #5a9900;
+	font-style: italic;
+}
+.classement p
+{
+	font-size: 11px;
+	padding-right: 10px;
+}
+
+#chart text[text-anchor="start"]
+tspan[y="5.5"]{
+	visibility: hidden;
+}
+
+.seePronoButton
+{
+	display:block;
+	background: url(../img/buttonSeeProno.gif) no-repeat scroll top;
+	width:284px;
+	height:40px;
+	margin:10px auto;
+	text-indent:-9999px;
+}
+.seePronoButton:hover
+{
+	background-position:bottom;
+}
+.matchStar {
+	color:#FFFFFF;
+}
+.conteneurLignesPronostics .matchStar img {
+    height: 28px;
+    margin: 0;
+    padding: 12px;
+}
+.box .conteneurLignesPronostics h3, .myLeagues .wrapBox h3 {
+	font-family: Canal;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	color: #888;
+	background: #F6F6F6;
+	padding: 7px 10px 3px;
+	margin-top: 15px;
+}
+
+.box .conteneurLignesPronostics h3 top{
+	font-size: 10px;
+	vertical-align: top;
+}
+
+
+.homeProno {
+	background: url("../img/bg_homeprono2.jpg") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    height: 275px;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 15px 0;
+    text-align: center;
+    width: 404px;
+}
+.homeProno h2 {
+	font-size: 17px;
+	color: #fff;
+	text-transform: uppercase;
+	text-shadow: 1px 2px 4px #000;
+	margin-bottom: 10px;
+}
+.homeProno h2 small {
+	font-size: 10px;
+	color: #fff;
+	padding: 0 5px;
+}
+.homeProno h2 img {
+	vertical-align: bottom;
+}
+.homeProno > img {
+	margin-bottom: 10px;
+}
+.homeProno a:hover {
+	color: #ABDB90;
+	text-decoration: none;
+}
+.match .matchStar a:hover {
+	color: #ccc;
+	text-decoration: none;
+}
+.homeProno .scoreCase {
+	width: 25px;
+	line-height: 30px;
+}
+.matchLeft, .matchMiddle, .matchRight {
+	color: #fff;
+	font-size: 13px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 140px;
+	word-wrap: break-word;
+}
+.match .matchLeft, .match .matchMiddle, .match .matchRight {
+	width: 135px;
+}
+.matchLeft {
+	/*text-align: left;*/
+}
+.matchMiddle {
+	text-align: center;
+	width: 108px;
+}
+.match .matchMiddle {
+	width: 110px;
+}
+.matchRight {
+	/*text-align: right;*/
+}
+.matchMiddle .date, .matchMiddle a {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.matchStar, .twoOtherMatch li {
+	margin-bottom: 16px;
+}
+.matchStar .name, .twoOtherMatch .name {
+	font-weight: bold;
+	line-height: 1.1;
+	display: inline-block;
+	vertical-align: middle;
+	width: 132px;
+	margin-top: -5px;
+}
+.match .name {
+	width: 70px;
+}
+.matchStar .name {
+	font-size: 13px;
+}
+
+.matchStar .subtitle {
+    color: #fff;
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+    margin: 5px 0 0;
+    text-transform: capitalize;
+}
+.matchStar .subtitle b {
+	color: #fff;
+}
+/* added by patient */
+.matchStar.homeMatchStar.clearfix {
+	background-color: rgba(70, 74, 76, 0.5);
+	background: rgba(70, 74, 76, 0.5);
+	color: rgba(70, 74, 76, 0.5);
+}
+
+.matchStar.homeMatchStar.todo.clearfix {
+	padding-top: 5px;
+}
+
+.imageWrap {
+	/*background: url(../img/sprite_logo_l.png) no-repeat;*/
+	display: inline-block;
+	width: 54px;
+	height: 34px;
+	line-height: 45px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px 3px 0 0;
+}
+.matchRight .imageWrap {
+	background-position: right top;
+	padding: 0 0 0 3px;
+}
+.twoOtherMatch .imageWrap {
+	background-image: url(../img/sprite_logo_m.png);
+	line-height: 40px;
+	width: 48px;
+	height: 48px;
+}
+.homeProno .twoOtherMatch a {
+	color: white;
+}
+.prediction {
+    background: url("../img/icon_prediction.png") no-repeat;
+    display: inline-block;
+    /*font-family: "canal-bold";*/
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0 2px;
+    width: 44px;
+}
+.customSelect {
+	background: url("../img/bg_custom_select.png") no-repeat;
+	display: inline-block;
+	width: 44px;
+	height: 25px;
+	padding-top: 3px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+.customSelect select {
+	font: 16px "canal", "arial black";
+	padding-left: 5px;
+	width: 65px;
+	border: none;
+	background: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.customSelect select:focus {
+	outline: none;
+}
+.customSelect option {
+	background: #fff;
+}
+.lte-ie9 .customSelect option {
+	background: none;
+}
+
+.buttonBlock {
+	text-align:center;
+}
+.createLeague .buttonBlock {
+	margin-top:15px;
+}
+.button,
+.ui-state-default, .ui-widget-content button.ui-state-default {
+    background: url("../img/btn_black.png") no-repeat; 
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.44);
+	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.44);
+	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.44);
+    color: #fff !important;
+    display: inline-block;
+    /*font-family: 'canal-bold';*/
+    font-size: 16px;
+    line-height: 39px;
+    padding: 0 15px;
+    text-shadow: 0 3px 3px #000000;
+    text-transform: uppercase;
+	font-weight:normal;
+	background-color : #FB2C43;
+}
+.ui-state-default, .ui-widget-content button.ui-state-default {
+	background-position: right top;
+	padding: 0;
+	border: none;
+	font-size: 14px;
+}
+.ui-state-default, .ui-widget-content button.ui-state-default:hover {
+	background-position: right -40px;
+	border: none;
+}
+.button:hover {
+	background-position: left -40px;
+	text-decoration: none;
+}
+.button:active {
+	background-position: left -80px;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.20);
+	-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.20);
+	-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.20);
+}
+.button i {
+    margin: 0 15px 0 0;
+    text-align: center;
+    width: 35px;
+}
+.buttonBlock i {
+	font-size:19px;
+}
+.homeProno i {
+	font-size:30px;
+}
+.conteneurLignesPronostics i {
+	font-size:24px;
+}
+/*** Score ***/
+.lastMatches .domicile {
+	float: left;
+	margin-right: 5px;
+}
+.lastMatches .exterieur {
+	float: right;
+	margin-left: 5px;
+}
+.scoreHomeResults
+{
+    float:left;
+    width:420px;
+	padding: 7px 0;
+	margin-left: 20px;
+}
+.scoreHomeResults p, .scoreHomeResults span
+{
+    float:left;
+    margin:5px 0 0;
+    text-align:center;
+    width:148px;
+}
+.scoreHomeResults p strong, .scoreHomeResults span strong
+{
+    font-size:12px;
+	float: left;
+}
+.scoreHomeResults p strong.txt, .scoreHomeResults span strong.txt
+{
+    font-size:12px;
+	float: right;
+}
+.scoreHomeResults p.score, .scoreHomeResults span.score
+{
+    color:#888888;
+    font-size:12px;
+    font-weight:bold;
+    line-height:35px;
+    text-align:center;
+    width:100px;
+}
+.friendsResultsHome {
+	margin:10px 0 0 0;
+}
+.friendsResultsHome table
+{
+    border-left:1px solid #E6E6E6;
+    float:right;
+    padding-left:7px;
+    width:299px;
+}
+.friendsResultsHome td
+{
+    padding:7px 4px;
+    text-align:center;
+}
+.friendsResultsHome td.fr_pic
+{
+    width:30px;
+}
+.friendsResultsHome table img
+{
+    width:30px;
+    margin-top:3px;
+}
+.friendsResultsHome td.fr_name
+{
+    font-size:10px;
+    text-align:left;
+    width:64px;
+}
+div.friendsResultsHome div.heading {
+    background:#fff;
+	text-transform:uppercase;
+	/*font-family: "canal-bold-it";*/
+	padding:7px 0;
+	color:#aaa;
+}
+.heading table {
+	border-left:0;
+}
+.news h2 span
+{
+    background: url(../img/titleNews.png) no-repeat;
+}
+.narrowColumn .news .wrapBox
+{
+    background: none;
+}
+
+.narrowColumn > img:first-child{
+    max-width: 320px;
+}
+
+.news .wrapBox img
+{
+    float: left;
+    margin-bottom: 5px;
+    width: 140px;
+}
+.news .wrapBox strong
+{
+    display:block;
+    font-size:11px;
+    color:#000;
+}
+.news .wrapBox a
+{
+	display: block;
+    float: left;
+    height: 200px;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+    width: 140px;
+}
+.news .wrapBox a:hover
+{
+    text-decoration:none;
+}
+
+.news .wrapBox a:hover strong
+{
+    text-decoration:underline;
+}
+.news .wrapBox em
+{
+    font-size:10px;
+    color:#666;
+    font-style:normal;
+    text-decoration:none;
+}
+.news .wrapBox .play
+{
+	float: none;
+	left: 11px;
+	position: absolute;
+	top: 80px;
+	width: 23px;
+}
+.news .wrapBox span
+{
+    display:block;
+    color:#000;
+    text-decoration:none;
+    margin:5px 0;
+}
+
+.prizesRules{
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 0 5px;
+}
+
+.rankHome h2 span
+{
+    background: url(../img/titleRank.png) no-repeat scroll;
+}
+.HomeRankBox div.bonusbox {
+    color: #565656;
+    padding: 30px 35px;
+    text-align: center;
+	float:none;
+	width:auto;
+	background:#f4f4f4;
+}
+.bonusbox h4 {
+	color:#5a9900;
+	margin:0 0 9px;
+	font-size:12px;
+	font-weight:bold;
+}
+div.bonusbox p {
+	float:none;
+	width:auto;
+}
+div.bonusBlock .HomeRankBox {
+	padding:0;
+}
+.HomeRankBox header h3 {
+	background: none repeat scroll 0 0 #ededed;
+    border-bottom: 0 none;
+    border-top: 1px solid #dedede;
+    color: #767676;
+    float: left;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 135px;
+}
+.HomeRankBox header h3 em {
+	color:#767676;
+	display:block;
+	font-family: 'canal-demi-it';
+}
+.HomeRankBox header h3.day {
+    color: #5A9900;
+    padding: 17px 0;
+}
+.clearfix {
+	overflow: hidden;
+}
+.wideBlock
+{
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+.wideBlock h3{
+	background-color: white;
+}
+.wideColumn
+{
+	float:left;
+	width:405px;
+	margin-left: 10px;
+}
+.narrowColumn
+{
+	width:320Px;
+	float:right;
+	margin-right: 10px;
+	padding-top : 10px;
+}
+
+.box
+{
+	/*font-family:Arial, Helvetica, sans-serif;*/
+	font-size:12px;
+	margin-bottom:20px;
+}
+.content_container > .box {
+	margin-bottom: 0;
+	padding-bottom: 10px;
+}
+.rankTitle {
+	margin-bottom:10px;
+}
+.news {
+	margin-bottom:0;
+	background-color:#EDEDED;
+    padding: 10px;
+}
+.box h2 span
+{
+	display:block;
+	margin-left:10px;
+	text-indent:-999px;
+}
+.box h2.title
+{
+	border-bottom: 1px solid #dedede;
+    /*font-family: "canal-bold-it";*/
+    font-size: 15px;
+	color: #000;
+    overflow: hidden;
+    padding-bottom: 4px;
+    padding-top: 10px;
+    text-transform: uppercase;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+	color:#000;
+}
+.myLeagues h2.title {
+	border-bottom:0;
+}
+.box h2.title top{
+	font-size: 10px;
+	vertical-align: top;
+}
+.overseasBox{
+	margin-bottom: 15px;
+}
+
+.oneColumn .box h2
+{
+	background: white;
+}
+.oneColumn{
+	padding:0 10px;
+}
+.oneColumnRanking {
+	margin-bottom: 15px;
+}
+
+.wrapBox
+{
+	background-color:#f4f4f4;
+}
+.narrowColumn .wrapBox
+{
+	margin-top:15Px;
+	overflow: hidden;
+}
+.box h3.days
+{
+	padding: 8px 10px 0;
+}
+.box h3
+{
+    border-bottom: 1px solid #D4D4D4;
+    color: #444444;
+    /*font-family: 'canal-demi-it';*/
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 0 8px;
+    text-transform: uppercase;
+	margin: 0 0 14px;
+}
+.noData
+{
+	padding:30px;
+	text-align:center;
+	color:#666;
+	font-size: 12px;
+}
+.step {
+	margin-bottom:15px;
+}
+.HomeRankBox {
+	padding:18px;
+}
+.HomeRankBox div {
+	float:left;
+	width:130px;
+}
+.HomeRankBox div.right {
+	width:190px;
+	margin-left:25px;
+}
+div.right p {
+	border-left:1px solid #d4d4d4;
+	padding-left:25px;
+}
+div.right h3 {
+	margin: 0 0 14px 25px;
+}
+.bonusList li {
+	overflow:hidden;
+	background:#fbfbfb;
+	border-top: 1px solid #FFFFFF;
+}
+.bonusList li:nth-child(2n) {
+	background:#f5f5f5;
+}
+.bonusList li div {
+	width:135px;
+}
+.bonusList li div.arrow {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-right: 1px solid #DCDCDC;
+    padding: 9px 0;
+    position: relative;
+    text-align: center;
+}
+.bonusList li div.arrow:after {
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid #F5F5F5;
+    border-top: 6px solid transparent;
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 10px;
+}
+.bonusList li:nth-child(2n) div.arrow {
+	background:#fcfcfc;
+}
+.bonusList li:nth-child(2n) div.arrow:after {
+	border-left: 6px solid #fcfcfc;
+}
+div.arrow span {
+	font-family: arial;
+    font-size: 14px;
+    font-weight: bold;
+}
+.HomeRankBox section div.rightPoints {
+	width:280px;
+	text-align:center;
+}
+.bonusList li .rightPoints {
+	color: #767676;
+    font-size: 14px;
+    padding: 6px 0;
+    text-align: center;
+    width: 134px;
+}
+.bonusList li .team {
+    color: #5A9900;
+}
+.bonusList li .team i {
+	font: 21px/1 'canal-icons';
+}
+.conteneurHomeResultats strong {
+	display: block;
+	line-height: 32px;
+	text-align: center;
+}
+.conteneurHomeResultats > div:nth-child(2n+1){
+	background: #CECECE;
+}
+
+.HomeRankBox p
+{
+	float:left;
+	width:132px;
+}
+.HomeRankBox span
+{
+	color: #4267B2;
+    display: block;
+    font-size: 24px;
+    line-height: 1;
+	/*font-family: 'canal-light';*/
+}
+.HomeRankBox span sup {
+	font-size: 13px;
+    line-height: 17px;
+	vertical-align: top;
+	text-transform: uppercase;
+}
+.HomeRankBox em
+{
+    color: #444444;
+    font-size: 14px;
+    font-style: normal;
+    text-transform: uppercase;
+	/*font-family: 'canal-light';*/
+}
+.HomeRankBox em strong {
+	font-size: 20px;
+	font-weight:normal;
+}
+div.listFriendsLeague p {
+    float: left;
+    font-size: 10px;
+    height: 90px;
+    margin: 0 2px 0 10px;
+    overflow: hidden;
+    text-align: center;
+    width: 55px;
+}
+.listFriendsLeague p img {
+	border:2px solid #767676;
+}
+a.btnLeague {
+    color: #444444;
+    float: left;
+    font-family: "canal-bold";
+    font-size: 18px;
+    line-height: 1;
+    text-transform: uppercase;
+	width: 230px;
+    word-wrap: break-word;
+}
+a.btnLeague:hover {
+	text-decoration: none;
+	color:#5a9900;
+}
+.participant {
+    color: #5A9900;
+    font-family: "canal-demi-it";
+    font-size: 14px;
+    padding: 10px 0 10px 8px;
+    text-transform: uppercase;
+}
+/***CREATE A LEAGUE***/
+h1.eachDayLigue
+{
+    color: #666666;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.conteneurFriends {
+	margin:0;
+}
+.conteneurFriends .wrapFriends {
+	background:#ECECEC;
+	height:340px;
+	overflow:auto;
+	position:relative;
+}
+.conteneurFriends .wrapFriends .error {
+	margin: 20px;
+}
+.conteneurFriends h4
+{
+    background: none repeat scroll 0 0 #ECECEC;
+    color: #818181;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding: 10px;
+}
+.conteneurFriends p
+{
+    float: left;
+    height: 85px;
+    margin: 5px 20px 10px;
+	padding: 5px;
+    overflow: hidden;
+    text-align: center;
+    width: 52px;
+}
+.conteneurFriends p a
+{
+    display: block;
+    height: 92px;
+}
+.conteneurFriends p a:hover
+{
+	text-decoration:none;
+}
+.conteneurFriends p .square
+{
+	background-repeat:no-repeat;
+    background-repeat: no-repeat;
+    border: 2px solid #fff;
+    display: block;
+    height: 50px;
+    padding: 0;
+    position: relative;
+    width: 47px;
+    z-index: 1;
+}
+.conteneurFriends p.selected {
+	background: #333;
+}
+.conteneurFriends p.selected strong {
+	color: #fff;
+}
+.conteneurFriends p.selected .square,.conteneurFriends p:hover.square {
+	border-color: #333;
+}
+eneurFriends p span
+{
+	color:#C3CDDF;
+}
+.conteneurFriends p .square span
+{
+	background-position:left bottom;
+	background-repeat:no-repeat;
+	display:block;
+	height:50px;
+	left:0px;
+	position:absolute;
+	top:0px;
+	width:47px;
+}
+.conteneurFriends p strong
+{
+    color: #767676;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 1.1;
+	display: block;
+    margin-top: 6px;
+}
+.conteneurFriends p .network
+{
+	display:block;
+	float:left;
+}
+.conteneurFriends p .network
+{
+	color:#666;
+	font-size:9px;
+	margin-top:3px;
+	white-space:nowrap;
+}
+.endForm
+{
+	padding:20px;
+	text-align:center;
+}
+.conteneurCreateLigue label {
+    color: #818181;
+    cursor: default;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: baseline;
+}
+.conteneurCreateLigue label span {
+	background:url(../img/label_bg.png) no-repeat left top;
+	display:inline-block;
+	color:#fff;
+	font-family: 'canal-demi-it';
+	width:28px;
+	line-height:26px;
+	margin-right:8px;
+	width: 21px;
+	padding-left:7px;
+}
+.conteneurCreateLigue label em {
+    color: #818181;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: bold;
+}
+.conteneurCreateLigue .conteneurP {
+	padding:10px 0;
+	margin:0;
+}
+.conteneurCreateLigue .inputtext {
+    border: 2px solid #E8E8E8;
+    color: #444444;
+    font-size: 18px;
+    margin: 7px 0 0;
+    text-transform: uppercase;
+    width: 395px;
+	font-family: 'canal-bold';
+}
+
+.conteneurCreateLigue h2{
+	margin-bottom: 10px;
+}
+
+.conteneurSearch
+{
+    float: left;
+    padding: 0 0 13px;
+    position: relative;
+    width: 392px;
+}
+.conteneurSearch b
+{
+	color: #73787C;
+}
+.tabCircle .conteneurSearch input {
+    border: 1px solid #E8E8E8;
+    color: #8F8F8F;
+    font-family: arial;
+    font-size: 12px;
+    font-style: italic;
+	padding: 5px;
+}
+.conteneurSearch a
+{
+	display:none;
+	height: 14px;
+	left: 422px;
+	margin-right: 7px;
+	position: absolute;
+	top: 9px;
+	width: 13px;
+	font-weight: bold;
+	color: #999;
+	font-size: 13px;
+}
+
+.tabCircle
+{
+    background: none repeat scroll 0 0 #F4F4F4;
+    border-top: 1px solid #DEDEDE;
+    margin: 0;
+    overflow: auto;
+    padding: 3px 0 0 15px;
+}
+.tabCircle span
+{
+    color: #444444;
+    cursor: pointer;
+    float: right;
+    font-family: "canal-bold-it";
+    padding: 12px 15px 12px 5px;
+    text-transform: uppercase;
+}
+.tabCircle span:hover,.tabCircle span.activeTab{
+    text-decoration: underline;
+	color:#5A9900;
+}
+.conteneurCreateLigue  h2 span
+{
+	background: url(../img/titleCreateLeague.png) no-repeat scroll;
+}
+
+/*	BET D2D
+-------------------------------------------------------------------------*/
+.conteneurBetD2D  h2 span
+{
+	background: url(../img/titleBetD2D.png) no-repeat scroll;
+}
+.conteneurLignesPronostics h2 strong {
+	color: #1F401F;
+    float: right;
+    font-family: "canal-bold";
+    font-weight: normal;
+}
+.conteneurLignesPronostics h2 strong sup {
+	font-size: 10px;
+}
+.conteneurBetD2D .betScore select
+{
+	margin:10px  2px 0;
+}
+.conteneurBetD2D .betScore em a {
+    color: #8A8A8A;
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+	text-transform: capitalize;
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+.conteneurBetD2D .betScore em b {
+	color: #2d6d02;
+}
+.conteneurBetD2D .betScore em img
+{
+	height:10px;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+	vertical-align:bottom;
+}
+.conteneurBetD2D .betScore b
+{
+	color:#486d0f;
+}
+.conteneurBetD2D .matchStar {
+	background: #1a1a1a;
+	margin:0;
+    height: auto;
+    padding: 10px 6px 10px;
+    width: auto;
+	border-bottom:1px solid #fff;
+}
+.betDomicile
+{
+    padding-left: 10px;
+    text-align: left;
+	width: 80px;
+}
+.betScore
+{
+	text-align:center;
+	padding-top:15Px;
+}
+.betExterieur
+{
+    padding-right: 10px;
+    text-align: right;
+	width: 80px;
+}
+.betDomicile a, .betExterieur a {
+	font-weight: bold;
+	display: inline-block;
+	max-width: 80px;
+	word-wrap: break-word;
+	margin-top: 8px;
+}
+.betLogo
+{
+	text-align:center;
+	width:40Px;
+}
+.betScore select
+{
+	margin:0 2px;
+	width:125px;
+}
+.conteneurBetD2D .matchStar strong
+{
+	font-size:14Px;
+	padding-top:22px;
+	color:#000;
+}
+table.match {
+	border-collapse: separate;
+	margin-bottom: 30px;
+}
+table.match .twoOtherMatch img {
+	background:none;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	height:auto;
+	margin:0;
+
+}
+.conteneurBetD2D .twoOtherMatch td {
+    background:#f1f1f1;
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #D5D5D5;
+	padding:15px 0 5px;
+}
+.conteneurBetD2D tr.twoOtherMatch:nth-child(2n) td {
+    background:#F6F6F6 ;
+}
+.scoreCase {
+    border: 1px solid #191919;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.44),0 1px 0 rgba(255,255,255,.5) inset;
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.44),0 1px 0 rgba(255,255,255,.5) inset;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.44),0 1px 0 rgba(255,255,255,.5) inset;
+    color: #FFFFFF;
+    font-family: "canal-bold";
+	font-size:14px;
+	line-height:34px;
+	width:28px;
+	text-align:center;
+	display:inline-block;
+	cursor:default;
+    text-decoration: none;
+	background: #000000; /* Old browsers */
+	background: -moz-linear-gradient(top,  #000000 0%, #3a3a3a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#3a3a3a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #000000 0%,#3a3a3a 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #000000 0%,#3a3a3a 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #000000 0%,#3a3a3a 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #000000 0%,#3a3a3a 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#3a3a3a',GradientType=0 ); /* IE6-9 */
+
+}
+
+.conteneurBetD2D .scoreCase:hover{
+	background: -moz-linear-gradient(top,  #000000 0%, #222222 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#222222)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #000000 0%,#222222 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #000000 0%,#222222 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #000000 0%,#222222 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #000000 0%,#222222 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#222222',GradientType=0 ); /* IE6-9 */
+	text-decoration: none;
+	cursor: pointer
+}
+
+.selectedScore,
+.conteneurBetD2D .selectedScore:hover,
+.homeProno  .selectedScore,
+.homeProno  .selectedScore:hover
+{
+    border: 1px solid #225500;
+    color: #FFFFFF;
+	background: #3a8b03; /* Old browsers */
+	background: -moz-linear-gradient(top,  #3a8b03 0%, #2d6d02 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3a8b03), color-stop(100%,#2d6d02)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #3a8b03 0%,#2d6d02 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #3a8b03 0%,#2d6d02 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #3a8b03 0%,#2d6d02 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #3a8b03 0%,#2d6d02 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a8b03', endColorstr='#2d6d02',GradientType=0 ); /* IE6-9 */
+	text-decoration:none;
+	box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+}
+
+
+
+.twoOtherMatch li em.homeDate
+{
+	color:#FFFFFF;
+	position:relative;
+	top:-9px;
+}
+em.homeDate img
+{
+	height:15px;
+	margin:0;
+	vertical-align:bottom;
+}
+
+.twoOtherMatch li em.homeDate a
+{
+	color: white;
+}
+
+/*	List League
+-------------------------------------------------------------------------*/
+.myLeagues h2 span
+{
+	background: url(../img/titleMyLeagues.png) no-repeat scroll;
+}
+.myLeagues h2 span
+{
+	background: url(../img/titleMyLeagues.png) no-repeat scroll;
+}
+.createLeague h2 span
+{
+	background: url(../img/titleCreateLeague.png) no-repeat scroll;
+}
+
+/***List League***/
+.conteneurLigneLeague {
+	margin:15px 0;
+}
+.conteneurLigneLeague section {
+	background:#f4f4f4;
+	border-top:1px solid #dedede;
+	padding:8px;
+	overflow:hidden;
+}
+.myLeagues h4 {
+	margin:0;
+	color:#818181;
+	font-size:14px;
+	font-weight:bold;
+}
+.conteneurLigneLeague strong
+{
+	font-size:14Px;
+}
+.editLink {
+    background:#818181;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 11px;
+    margin: 0 0 0 10px;
+    padding: 1px 5px;
+	float:right;
+}
+.editLink:hover{
+	background:#666;
+	text-decoration:none;
+}
+.modify {
+	background:#666;
+
+}
+.modify:hover {
+	background:#333;
+	text-decoration:none;
+}
+.conteneurLigneLeague p label
+{
+	vertical-align:baseline;
+	font-weight:normal;
+}
+.conteneurLigneLeague p
+{
+	margin: 5px 0;
+	padding-bottom: 5px;
+}
+.createLeague .wrapBox
+{
+	padding:10px;
+}
+.formBlock {
+	margin:15px 0 0 0;
+}
+.createLeague,.conteneurCreateLigue {
+	color:#888787;
+}
+.createLeague h2.title {
+	border-bottom:0;
+}
+.profileHeader{
+	background: #ECECEC;
+	padding: 10px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.profileHeader img{
+	float: left;
+	margin-right: 10px;
+}
+
+.profileHeader h4{
+	font-family: "canal-demi-it";
+	color: #777;
+	display: block;
+	font-size: 13px;
+	margin: 4px 0 0;
+	text-transform: uppercase;
+	text-shadow: 0 0 1px rgba(50, 50, 50, 0.35);
+}
+
+.profileHeader h5{
+	font-family: "canal-bold-it";
+	font-size: 20px;
+	color: #000;
+	margin: 0;
+	text-transform: uppercase;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+
+
+.conteneurProfile .profileBlock
+{
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+.box h3.fav_title
+{
+	color: #77C12C;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+	border: 0;
+}
+.conteneurProfile .favorite
+{
+    text-align: center;
+    padding: 20px 0pt 0;
+    font-size: 17px;
+    font-family: Arial;
+}
+.conteneurProfile .favorite img
+{
+    margin-top: 10px;
+}
+.conteneurProfile .favorite strong
+{
+    text-transform: uppercase;
+    color: #80c53a;
+    font-size: 30px;
+    display: block;
+    margin-top: 10px;
+}
+
+/*	Affichage League
+-------------------------------------------------------------------------*/
+.conteneurLeague h1
+{
+	color:#5B9701;
+	font-family: "canal-bold";
+	font-size:29px;
+	text-transform: uppercase;
+	font-weight:bold;
+	margin:6px 0 12px 6px;
+}
+.conteneurLeague h1 a
+{
+	background:transparent url(../img/add.png) no-repeat scroll left center;
+	color:#666666;
+	display:block;
+	float:right;
+	font-family:Tahoma, arial, sans-serif;
+	font-size:12px;
+	font-style:normal;
+	font-weight:bold;
+	margin-right:10px;
+	margin-top:5px;
+	padding-bottom:5px;
+	padding-left:31px;
+	padding-top:5px;
+}
+
+.aboutLeague h2 span
+{
+	background: url(../img/titleAboutLeague.png) no-repeat scroll;
+}
+.aboutLeague .wrapBox
+{
+	padding:10px 0;
+	line-height:20px;
+	background: #FFF;
+	margin-top:0;
+}
+.aboutLeague label
+{
+	font-weight:normal;
+	vertical-align:baseline;
+}
+
+.profileFrame iframe
+{
+    margin-top: 10px;
+    width: 411px !important;
+}
+
+.rankLeague
+{
+	overflow: hidden;
+	margin: 15px 0;
+}
+.rankLeague th,.rankLeague td
+{
+	border-bottom: 1px solid #DDD;
+	font-weight: normal;
+}
+
+.rankLeague tr:last-child th, .rankLeague tr:last-child td{
+	border: 0;
+}
+
+.rankLeague td.fr_points, .friendsResultsHome td.fr_points
+{
+    color: #ed1c24;
+    font-weight: bold;
+    text-align: left;
+    width: 55px;
+}
+a.rankingUser, a.userName
+{
+    color: #767676;
+    display: block;
+    font-size: 11px;
+    line-height: 1.1;
+    padding: 5px 0 0;
+	height: 25px;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+.rankLeague td
+{
+    padding:4Px;
+}
+.rankLeague table img
+{
+    width:30px;
+}
+.rankLeague th
+{
+    padding:0 10px;
+}
+.rankLeague .altern
+{
+	background:#F7F7F7;
+}
+.rankLeague h2 span
+{
+	background: url(../img/titleRankLeague.png) no-repeat scroll;
+}
+.conteneurLeague .ligneHomeResultats
+{
+    border-bottom:1px solid #FFF;
+    margin:0;
+}
+.conteneurLeague .scoreHomeResults p
+{
+    margin:0;
+	line-height:30px;
+}
+.conteneurProfile .scoreHomeResults p.score
+{
+    line-height:30px;
+}
+.conteneurProfile .scoreHomeResults p
+{
+    margin:0;
+	line-height:30px;
+}
+.conteneurProfile .scoreHomeResults p strong
+{
+    display:block;
+    font-size:12px;
+    line-height:32px;
+}
+.doTp
+{
+	background:transparent url(../img/doTp.png) no-repeat scroll 0 0;
+	display:block;
+	height:32px;
+	margin:10px auto;
+	text-indent:-9999px;
+	width:278px;
+}
+.doTp:hover
+{
+	background-position:bottom;
+}
+.editTp
+{
+	/*background:transparent url(../img/editTp.gif) no-repeat scroll 0 0;*/
+	background: #5B9701;
+    color: #FFF;
+    display: block;
+    font: 14px/2.3 'canal-bold-it';
+    margin: 10px auto;
+    text-align: center;
+    text-transform: uppercase;
+	height:32px;
+	width:278px;
+}
+.editTp i {
+	margin: 0 5px 3px 0;
+	font: 18px/1 'canal-icons';
+}
+.editTp:hover {
+	/*background-position: bottom;*/
+    background:#FFF;
+    color: #5B9701;
+    text-decoration: none;
+}
+.tpHelp
+{
+	background:#FFF8CC none repeat scroll 0 0;
+	border:1px solid #FFE222;
+	padding:10px;
+}
+.tpRules, .tpHelpMsg
+{
+	padding:10px;
+}
+
+.tpRules .tpHelp{
+	display: block;
+	margin-bottom: 10px;
+}
+
+.commentBlock{
+	background: white;
+}
+/*	Profile
+-------------------------------------------------------------------------*/
+.conteneurProfile h1
+{
+	color:#5B9701;
+	font-family:Arial;
+	font-size:29px;
+	font-style:italic;
+	font-weight:bold;
+	margin:6px 0 12px 6px;
+}
+.conteneurProfile .ligneHomeResultats
+{
+	border-bottom:1px solid #F2F2F2;
+	padding:3px 0;
+	margin:0;
+}
+.conteneurProfile .lastMatches h2 span
+{
+    background: url(../img/titleProfileProno.png) no-repeat scroll;
+}
+.conteneurProfile .profileLeagues h2 span
+{
+    background: url(../img/titleProfileLeague.png) no-repeat scroll;
+}
+.classement_container
+{
+
+}
+.classement_container .tab_menu
+{
+	background: #E53245; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bf2837 0%, #E53245 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bf2837), color-stop(100%,#E53245)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #bf2837 0%,#E53245 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #bf2837 0%,#E53245 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #bf2837 0%,#E53245 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #bf2837 0%,#E53245 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf2837', endColorstr='#E53245',GradientType=0 ); /* IE6-9 */
+	height: 48px;
+	border-bottom: 1px solid #999;
+	margin: 0 27px 15px 28px;
+	border-top-left-radius: 4px;
+	-moz-border-top-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+}
+.classement_container .tab_menu ul
+{
+	margin:0px;
+	padding: 0px;
+}
+.classement_container .tab_menu ul li
+{
+	float:left;
+}
+.classement_container .tab_menu ul li a
+{
+    color: #FFFFFF;
+    display: block;
+    font-family: canal-demi-it;
+    padding: 7px 27px 7px 28px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 84px;
+	text-decoration: none;
+	border-width:0 1px;
+	border-style:solid;
+	border-color:#a7a7a8 #3a3a3b #1f1f20 #69696b;
+	min-height:34px;
+}
+.classement_container .tab_menu ul.fr li a {
+	padding:7px 24px;
+	width:91px;
+}
+.classement_container .tab_menu ul li a:hover,.classement_container .tab_menu ul li a.active
+{
+	background: #ededed;
+	text-decoration: none;
+	color:#444;
+	border-color:#f5f5f5 #cbcbcb #888888 #cbcbcb;
+}
+.menu_ranking_gal {
+	border-top-left-radius: 4px;
+	-moz-border-top-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+}
+.menu_ranking_fans {
+	border-top-right-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+}
+
+.classement_container .classement_container_in
+{
+	padding: 20px 0 20px 10px;
+	overflow: hidden;
+}
+.classement_container .classement_head_title
+{
+	width:341px;
+	background: #e6e6e6;
+}
+.classement_container .classement_head_title_top
+{
+	background:url(../img/clasement_title_top_curve.gif) no-repeat top;
+	height: 5px;
+	overflow: hidden;
+}
+.classement_container .classement_head_title_mid
+{
+	background: #e6e6e6;
+	padding:6px 0 8px 12px;
+}
+.classement_container .classement_head_title_bot
+{
+	background:url(../img/clasement_title_bot_curve.gif) no-repeat top;
+	height: 5px;
+	overflow: hidden;
+}
+.classement_container .classemen_lft_list
+{
+	overflow: hidden;
+}
+
+.classemen_lft_list h3{
+	font-family: Canal;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	color: #888;
+	background: #F6F6F6;
+	padding: 7px 10px 5px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #DDD;
+}
+
+.classemen_lft_list h3 select{
+	font-size: 11px;
+}
+
+.classement_container .classemen_lft_list ul
+{
+	border-bottom: 1px solid #CCCCCC;
+	height: 35px;
+	margin: 0 0 0 1px;
+	padding: 5px 0 0;
+	overflow:hidden;
+}
+
+.classement_container .classemen_lft_list ul:nth-child(2n+1)
+{
+	background: #FAFAFA;
+}
+
+.classement_container .classemen_lft_list ul.activeUser
+{
+	border-bottom: 1px solid #CCCCCC;
+	background: #efffc9;
+	height: 35px;
+	margin: 0 0 0 1px;
+	padding: 5px 5px 0;
+}
+.classement_container .classemen_lft_list ul li
+{
+	list-style: none;
+	float:left;
+}
+.classement_container .classemen_lft_list ul li.serial
+{
+	width: 51px;
+	font-size: 12px;
+	padding-top: 7px;
+	font-weight: bold;
+	padding-left: 15px;
+}
+.classement_container .classemen_lft_list ul li a
+{
+	float:left;
+}
+.classement_container .classemen_lft_list ul li a img
+{
+	margin-right:31px;
+	width: 30px;
+}
+.classement_container .classemen_lft_list ul li.name, .classement_container .classemen_lft_list ul li.nameSelected
+{
+	width:170px;
+	padding-top: 7px;
+}
+.classement_container .classemen_lft_list ul li.nameSelected a
+{
+	color: #000000;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.classement_container .classemen_lft_list ul li.name a
+{
+	color: #3b5998;
+	text-decoration: none;
+	font-size: 11px;
+}
+.classement_container .classemen_lft_list ul li label
+{
+	color:#f90000;
+	float: right;
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 7px;
+	cursor: default;
+}
+.classement_container .classemen_lft_list ul li label.selectedPts
+{
+	color:#000;
+}
+.classement_container .classement_in_rht
+{
+	float:right;
+}
+.classement_craft
+{
+	margin:23px 0 8px 0;
+}
+
+.rankingInLeagues li a{
+	font-size: 12px;
+	display: block;
+	margin-top: 8px;
+}
+
+/***** Buttons  ******/
+a.btnShare {
+	background-color: #4267B2;
+	background-image: -webkit-linear-gradient(bottom, #4267B2, #4267B8);
+	background-image: -moz-linear-gradient(bottom, #4267B2, #4267B8);
+	background-image: -o-linear-gradient(bottom, #4267B2, #4267B8);
+	background-image: -ms-linear-gradient(bottom, #4267B2, #4267B8);
+	background-image: linear-gradient(to top, #4267B2, #4267B8);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4267B2', endColorstr='#4267B8',GradientType=0 );
+	margin: 0 0 0 5px;
+	color:#fff;
+	font-size:10px;
+	text-transform:uppercase;
+	font-weight:normal;
+	/*font-family: 'canal-demi-it';*/
+	display:inline-block;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	margin: -2px 0 0 5px;
+    padding: 4px 8px;
+}
+
+a.btnShare:hover
+{
+	text-decoration: none;
+	outline:none;
+	background-color: #756f6f;
+	background-image: -webkit-linear-gradient(bottom, #756f6f, #5a5656);
+	background-image: -moz-linear-gradient(bottom, #756f6f, #5a5656);
+	background-image: -o-linear-gradient(bottom, #756f6f, #5a5656);
+	background-image: -ms-linear-gradient(bottom, #756f6f, #5a5656);
+	background-image: linear-gradient(to top, #756f6f, #5a5656);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#756f6f', endColorstr='#5a5656',GradientType=0 );
+}
+
+a.btnCancel, a.btnContinue
+{
+	background-color: #5972a7;
+	color: #fff !important;
+	font-weight: bold;
+	padding: 4px;
+	border: 1px solid #29447e;
+	float: right;
+	margin: 0 10px 0 0;
+}
+a.btnCancel
+{
+	background-color: #e1e0e0;
+	border: 1px solid #999999;
+	color: #333!important;
+}
+a.btnCancel:hover, a.btnContinue:hover
+{
+	text-decoration: none;
+}
+/***Form***/
+.popupContent form p
+{
+    padding: 10px 0 5px;
+    clear: both;
+    overflow: hidden;
+}
+.popupContent form p label
+{
+    width: 130px;
+    float: left;
+}
+.popupContent form p label.radio
+{
+    width: 80px;
+    float: left;
+}
+.popupContent form p label.mail
+{
+    width: 316px;
+    float: left;
+    margin: 0 0 0 132px;
+}
+.popupContent form p label.mail input
+{
+    float: left;
+    margin: 0 7px 7px 0;
+}
+.inputText
+{
+    background-color: #F7F7F7;
+    border: 1px solid #CCCCCC;
+    color: #666666;
+    height: 18px;
+    padding: 2px;
+    width: 180px;
+}
+a.btnValid
+{
+    width: 140px;
+    height: 40px;
+    display: block;
+    text-indent: -9999px;
+    background:url(../img/btn_valid.gif) no-repeat;
+    margin: 10px 0 10px 130px;
+    clear: both;
+}
+a.btnValid:hover {
+	background-position: left bottom;
+}
+.popupContent h1
+{
+    color: #666666;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+/***Trophy***/
+.loading-indicator {
+	height: 80px;
+	width: 80px;
+	background: url('../img/loading.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.loading-indicator-overlay {
+	background-color: #FFFFFF;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+.qPoints li {
+	list-style-type: disc;
+	list-style-position: inside;
+	margin-left: 20px;
+}
+
+/***popups***/
+.deleteLeague.ui-dialog {
+	width: 450px !important;
+	box-shadow: 0 0 10px rgba(0,0,0,.6);
+	border-radius: 0;
+	background: #fff;
+}
+.deleteLeague.ui-widget {
+	font-family: Arial,Helvetica,sans-serif;
+}
+.deleteLeague.ui-dialog .ui-widget-header {
+	background: none;
+	border: none;
+}
+.deleteLeague.ui-dialog .ui-widget-header .ui-icon {
+	background: url(../img/ui-icons.png) no-repeat -96px -128px;
+	width: 18px;
+	height: 18px;
+}
+.deleteLeague.ui-dialog .ui-widget-header .ui-state-hover, .deleteLeague.ui-dialog .ui-widget-header .ui-state-focus,
+.deleteLeague.ui-dialog .ui-state-hover, .deleteLeague.ui-dialog .ui-state-focus {
+	background: #f7f7f7;
+	border: 1px solid #3d3d3f;
+}
+.deleteLeague.ui-dialog .ui-dialog-content {
+	overflow: visible;
+	padding: 0.5em 0.3em 0;
+}
+.deleteLeague .popupHeader {
+	overflow: hidden;
+	font-size: 20px;
+	font-family: Canalbold-it;
+	position: absolute;
+	top: -32px;
+	text-transform: uppercase;
+	padding-left: 8px;
+}
+.deleteLeague .popupContent {
+	font-size: 14px;
+	overflow: hidden;
+	padding: 0 10px;
+}
+.deleteLeague .popupFooter {
+	overflow: hidden;
+	margin: 10px 0;
+	padding: 10px 10px 0;
+	text-align:center;
+}
+.deleteLeague a.btnCancel, .deleteLeague a.btnContinue {
+	background: url(../img/btn_popup_delete.gif);
+	float: none;
+	height: 40px;
+	display: inline-block;
+	border: 0;
+	text-indent: 999em;
+	margin: 0 5px;
+	padding: 0;
+}
+.deleteLeague a.btnCancel {
+	width: 162px;
+	background-position: -187px 0;
+}
+.deleteLeague a.btnContinue {
+	width: 182px;
+}
+.deleteLeague a.btnCancel:hover {
+	background-position: -187px -40px;
+}
+.deleteLeague a.btnContinue:hover {
+	background-position: 0 -40px;
+}
+.formPopup.ui-dialog {
+	background: #fff;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 0 10px rgba(0,0,0,.6);
+}
+.formPopup.ui-dialog .ui-corner-all {
+	border-radius: 0;
+}
+.formPopup.ui-dialog .ui-widget-header {
+	background: #3d3d3f;
+	border: 0;
+}
+.formPopup.ui-dialog .ui-dialog-titlebar-close {
+	display: none;
+}
+.popupContent a.btnValid {
+	margin: 10px 0 10px 155px;
+}
+
+.rulesBox .wrapBox h3, h3.titlePrize {
+	font-family: Canal;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	color: #888;
+	background: #F6F6F6;
+	padding: 7px 10px 3px;
+	margin-top: 15px;
+}
+
+/***rules page***/
+.rulesBox .wrapBox p, .rulesBox .wrapBox ul{
+	margin: 10px 0;
+}
+.rulesBox .wrapBox{
+	background: white;
+}
+
+h2.commenTitle {
+	background: #E6E6E6;
+	color: #8E8E8E;
+    border-radius: 5px;
+    height: 35px;
+    overflow: hidden;
+    font-family: "canal-bold";
+    font-size: 13px;
+    font-style: italic;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 35px;
+}
+/***prize page***/
+.titlePrize {
+	margin-bottom: 20px;
+}
+/***My predictions rankings***/
+ol.b_b_team li {
+	width: 305px;
+	padding: 2px 10px;
+}
+ol.b_b_team li span, ol.b_b_team li.adjustSize b {
+	float: none;
+	display: inline-block;
+}
+ol.b_b_team li span {
+	margin: 0 3px 0 0;
+    position: absolute;
+    right: -7px;
+    top: 4px;
+}
+
+.cfcPredictions {
+	width: 237px !important;
+}
+
+.cfcPredictions a {
+    background: url("../img/btn_prediction.png") repeat-x left top;
+    border-radius: 5px 5px 5px 5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.44);
+	-moz-box-shadow:0 2px 3px rgba(0, 0, 0, 0.44);
+	-webkit-box-shadow:0 2px 3px rgba(0, 0, 0, 0.44);
+    display: block;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+.cfcPredictions a span {
+    color: white;
+    float: left;
+    font-family: "canal-bold";
+    font-size: 16px;
+    line-height: 1.3;
+    padding-top: 5px;
+    width: 150px;
+	text-shadow: 0 3px 3px #000000;
+}
+.cfcPredictions a:hover span {
+	text-decoration: none;
+}
+.cfcPredictions a:active {
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.20);
+	-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.20);
+	-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.20);
+}
+
+.cfcPredictions img {
+	float: left;
+	margin-right: 12px;
+}
+.box p.reportIssue {
+	font-size: 12px;
+	overflow: hidden;
+	padding: 7px 10px;
+}
+.custombg {
+	background:#000 url(../img/bg.jpg) center bottom no-repeat;
+	/*background-size: 100% 80%;*/
+	min-height: 600px;
+}
+.custombg2 {
+	background:#000 url(../img/bg2.jpg) center bottom repeat;
+	/*background-size: 100% 80%;*/
+	min-height: 600px;
+}
+.fakeAd {
+	background: #F2F2F2; text-align: center; font-size: 20px; color: #BBB; height: 250px; line-height: 250px; font-weight: bold; width: 300px;
+}
+.explanationBlock {
+	color: #666;
+	font-size: 12px;
+	line-height: 18px;
+}
+.conteneurBetD2D  .explanationBlock{
+	margin-top: 15px;
+}
+.shareBlock {
+    padding: 0 30px 15px;
+}
+.shareBlock .button {
+	margin:0 0 15px 0;
+}
+.explanationBlock p {
+	margin-bottom: 15px;
+}
+.explanationBlock div:first-child {
+    padding: 0 0 0 7px;
+}
+.explanationBlock div:first-child p:first-child {
+    font-weight: bold;
+}
+.explanationBlock div:last-child {
+}
+.explanationBlock div:last-child p {
+    background: url("../img/icon_flag.png") no-repeat scroll 8px 4px transparent;
+	padding: 5px 0 20px 54px;
+	margin-bottom: 0;
+}
+.facepile {
+	height: 65px;
+	overflow: hidden;
+}
+/*** Zone popup ***/
+.ui-dialog.ui-widget.zoneDialog {
+    background: #fff url(../img/bg_popup_border.png) repeat-x 0 2px;
+    border: none;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    padding: 0;
+	overflow: visible;
+}
+.zoneDialog .ui-dialog-titlebar {
+    display: none;
+}
+.zoneDialog.ui-dialog .ui-dialog-content {
+    padding: 5%;
+    text-align: center;
+	color: #000;
+	overflow: visible;
+}
+.selectZone {
+    background: #EAEAEA;
+    border: 2px solid #EAEAEA;
+   border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0 4px 4px #D0D0D0 inset;
+    color: #000;
+    font: 2em 'canallight';
+    padding: 0;
+    width: 65%;
+	display: inline-block;
+	margin-bottom: 25px;
+	cursor: pointer;
+	position: relative;
+}
+/*.selectZone:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 6%;
+	margin-top: -11px;
+	border-style: solid;
+	border-width: 27px 19px 0 19px;
+	border-color: #141516 transparent transparent transparent;
+}*/
+.selectZone select {
+	background: none;
+	border: 0;
+	font: 0.8em 'canal-light';
+	color: #000;
+	padding: 2%;
+	cursor: pointer;
+	width: 100%;
+}
+.selectZone select option {
+	color: #000;
+}
+.zoneDialog h2 {
+    border-bottom: 3px solid #C8C8C8;
+    font: 1.5em 'canal-bold';
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.zoneDialog p {
+    font: 1.2em/1.1em 'canal-light';
+    margin-bottom: 20px;
+}
+.ui-widget button.btnValidate {
+    font-family: 'canalboldroman';
+    font-size: 2.125em;
+	margin: 0 auto;
+}
+.zoneDialog .btnClose {
+    background: #000;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -weblit-border-radius: 50%;
+    color: #FFF;
+    font: 1.7em/64px 'canalboldroman';
+    height: 58px;
+    padding: 0;
+    position: absolute;
+    right: 25px;
+    text-transform: none;
+    top: -38px;
+    width: 58px;
+}
+
+.doublePointMessage{
+    padding: 8px 17px;
+    background: #ffef1b;
+    font-weight: bold;
+    font-size: 15px;
+}

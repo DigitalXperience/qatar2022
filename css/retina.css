@@ -1,0 +1,6 @@
+@media all and (-webkit-min-device-pixel-ratio:2)
+{
+    body {
+		background-image: url(../img/bg_2x.jpg?2);
+	}
+}
