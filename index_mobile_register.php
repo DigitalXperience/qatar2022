@@ -225,14 +225,14 @@ if($_GET["message"]) {
 				<button id="loginBtn" class=" loginBtn--google" style="margin-top:15px">
 				  Connexion via Google
 				</button>
-				<form action="https://www.33export-foot.com/index_mobile_register_code.php" id="form_register" style="margin-top:15px" method="post">
+				<form action="https://www.33export-foot.com/qatar2022/index_mobile_register_code.php" id="form_register" style="margin-top:15px" method="post">
 					<div class="form-label-divider" style="margin-top:15px"><span style="display:inline">OU</span></div>
 					<div id="name"></div>
 					<input type="text" id="nom" placeholder="Votre Nom" name="nom">
 					<input type="text" id="email" placeholder="Votre Email" name="email">
 					<input type="text" id="numero" placeholder="Votre numéro de téléphone (6XXXXXXXX)" name="numero"> 
 					<input type="submit" class="button-default" id="register" value="S'enregistrer" style="background-color: #B51729;">
-					<h6>Vous avez déjà un compte ? <a href="https://www.33export-foot.com/index_mobile3.php">Connexion</a></h6>
+					<h6>Vous avez déjà un compte ? <a href="https://www.33export-foot.com/qatar2022/index_mobile3.php">Connexion</a></h6>
 				</form>
 			</div>
 		</div>
