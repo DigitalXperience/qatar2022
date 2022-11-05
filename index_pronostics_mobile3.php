@@ -11,7 +11,7 @@ include_once 'includes/functions.php';
 
 // Se rassurer que le mec est connecté. Sinon on le renvoie à l'authentification. Si oui on récupère les données de connexion : Mode d'authentification, id, 
 if(!isset($_SESSION['id'])) {
-	header('Location: https://www.33export-foot.com/can2022/index_mobile3.php');
+	header('Location: https://www.33export-foot.com/qatar2022/index_mobile3.php');
 	die();	
 }
 
@@ -167,7 +167,7 @@ if($_POST) {
 			}
 		}
 	}
-	$url = "https://www.33export-foot.com/can2022/index_pronostics_mobile3.php?msg=pronogood&idcompetition=" . $idcompetitions;
+	$url = "https://www.33export-foot.com/qatar2022/index_pronostics_mobile3.php?msg=pronogood&idcompetition=" . $idcompetitions;
 	
 	header("Location: $url");
 	die;
@@ -245,7 +245,7 @@ if($_POST) {
 			
 			<div id="main" role="main">
 			<header>
-				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
+				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
 				<?php include('top_menu_mobile.php'); ?>
 			</header>
 			<div class="rankHolder">
@@ -463,7 +463,7 @@ var Bet = {
 </script>
 <?php } ?>
 <footer id="sticky">
-	  © 33 Export <?php echo date('Y'); ?>  | <a href="#" id="btn_logout" style="display:inline;">Se déconnecter</a> | <a href="https://www.33export-foot.com/can2022/terms.html" style="display:inline;">Termes</a>
+	  © 33 Export <?php echo date('Y'); ?>  | <a href="#" id="btn_logout" style="display:inline;">Se déconnecter</a> | <a href="https://www.33export-foot.com/qatar2022/terms.html" style="display:inline;">Termes</a>
 
 		<!--
 		<div id="fbForceResize" style="display:none; height:20px; width:100px">&nbsp;</div>
@@ -481,7 +481,7 @@ var Bet = {
 				e.preventDefault();
 				FB.logout(function(response) {
 				   // Person is now logged out
-				   window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_mobile3.php?action=deconnexion';
+				   window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_mobile3.php?action=deconnexion';
 				});
 				/*
 				FB.api('/me/permissions', 'delete', function()
@@ -499,7 +499,7 @@ var Bet = {
 		$('#btn_logout').off('click').on('click', function(e) {
 				e.preventDefault();
 				//alert("Il essaie de se deconnecter sans facebook");
-			 window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_mobile3.php?action=deconnexion';
+			 window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_mobile3.php?action=deconnexion';
 		});
 		<?php } ?>
 	});

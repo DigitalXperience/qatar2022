@@ -376,3 +376,11 @@ function getAnswers()
     return $res->fetch_all(MYSQLI_ASSOC);
     
 }
+
+/**
+ * Genere un nombre aléatoire de 4 chiffres
+ */
+function createCode()
+{
+	return rand(0000,9999);
+}

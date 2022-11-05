@@ -165,7 +165,7 @@ if ($result = mysqli_query($mysqli, $query)) {
 }
 
 if(count($rencontres_pronostiquees) == 0) {
-	$url = "https://www.33export-foot.com/can2022/index_pronostics_mobile3.php?idcompetition=" . $idcompetitions;
+	$url = "https://www.33export-foot.com/qatar2022/index_pronostics_mobile3.php?idcompetition=" . $idcompetitions;
 	
 	header("Location: $url");
 	
@@ -275,13 +275,13 @@ $mysqli->close();
 		<div id="container">
 			<div id="main" role="main">
 			<header>
-				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
+				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
 				<?php include('top_menu_mobile.php'); ?>
 			</header><div class="rankHolder">
 	<h1 class="rankingTitle">classement</h1>
 </div>
 <ul class="subNavigation">
-<li><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_classement_mobile_hebdo.php?list=all&idcompetition=<?php echo $idcompetitions; ?>" class="">Hebdo</a></li>
+<li><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_classement_mobile_hebdo.php?list=all&idcompetition=<?php echo $idcompetitions; ?>" class="">Hebdo</a></li>
 <li><a href="#" class="active">Général</a></li>
 </ul>
 
@@ -343,7 +343,7 @@ $mysqli->close();
 			foreach($utilisateurs as $user) { ?>
 				<li>
 				<span class="rankNo"><?php echo $d; ?></span>
-				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_myprofile_mobile.php?user=<?php echo $user->id; ?>&idcompetition=<?php echo $idcompetitions; ?>" rel="callback" class="playerProfile">
+				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_myprofile_mobile.php?user=<?php echo $user->id; ?>&idcompetition=<?php echo $idcompetitions; ?>" rel="callback" class="playerProfile">
 					<div class="playerName">
 						<span>
 							<?php if($user->oauth_provider == 'facebook') { ?>
