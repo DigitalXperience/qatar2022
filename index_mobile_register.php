@@ -1,9 +1,8 @@
 <?php 
 $message = "";
-if($_GET["message"]) {
-	if($_GET['message'] == "error1") { 
-		$message = "Votre numéro doit avoir 9 chiffres.";
-	}
+if(isset($_GET["message"])) {
+	$_GET['message'] == "error1"; 
+	$message = "Votre numéro doit avoir 9 chiffres.";
 }
 ?>
 <!DOCTYPE html>
@@ -75,32 +74,23 @@ if($_GET["message"]) {
 				}
 				
 			}, function(error) {
-			  alert(JSON.stringify(error, undefined, 2));
+				alert(JSON.stringify(error, undefined, 2));
 			});
 	  }
 	  </script>
 
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '384046202210940',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v3.3'
-    });
-	
-	FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            //display user data
-            //getFbUserData();
-			console.log('Il est dejao clo');
-			window.location.href='index_test.php';
-        }
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
+	window.fbAsyncInit = function() {
+	FB.init({
+	  appId      : '1289689755102737',
+	  cookie     : true,
+	  xfbml      : true,
+	  version    : 'v15.0}'
+	});
+	  
+	FB.AppEvents.logPageView();   
+	  
+	};
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -109,6 +99,10 @@ if($_GET["message"]) {
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+   
+   FB.getLoginStatus(function(response) {
+		statusChangeCallback(response);
+	});
 </script>
 	  
 <style>
@@ -209,6 +203,8 @@ if($_GET["message"]) {
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=1289689755102737&autoLogAppEvents=1" nonce="uD8S6Aia"></script>
 	<!-- login register -->
 	<div class="login-register-wrap-home">
 		<div class="container">
@@ -218,10 +214,11 @@ if($_GET["message"]) {
 				<div id="response"><?php //echo $live_url;
 					echo $message;
 				?>
-				</div>
+				</div><!--
 				<button class="loginBtn loginBtn--facebook" onClick="logInWithFacebook()">
 				  Connexion via Facebook
-				</button>
+				</button>-->
+				<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="true" data-use-continue-as="true"></div>
 				<button id="loginBtn" class=" loginBtn--google" style="margin-top:15px">
 				  Connexion via Google
 				</button>
@@ -308,6 +305,15 @@ if($_GET["message"]) {
 
 	// Google Login
 	startApp();
+	window.onload = function() {
+		setTimeout(function() {
+		  if ( typeof(window.google_jobrunner) === "undefined" ) {
+			console.log("ad blocker installed");
+		  } else {
+			console.log("no ad blocking found.");
+		  }
+		}, 10000);
+	};
     </script>
 <div class="hiddendiv common"></div>
 </body>

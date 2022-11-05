@@ -141,44 +141,38 @@ if($_POST) {
 		
 		
 		logInWithFacebook = function() {
-			//alert("Il tente une connexion via facebook");
-			FB.login(function(response) {
-				if (response.status === 'connected') {
-					// Logged into your app and Facebook.
-					console.log('You are connected');
-					//function getFbUserData(){
-						FB.api('/me', {fields: 'id,name,email'},
-						function (response) {
-						console.log(JSON.stringify(response));
-						console.log('id : '+response.id);
-						console.log('Email : '+response.email);
-						console.log('Name : '+response.name);
-							/*document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
-							document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
-							document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
-							document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
-							*/
-							$.post('_ajax/login_facebook.php', {oauth_provider:'facebook',userData: JSON.stringify(response)}, function(data){ return true; }).done(function(data) {
-								//console.log(data);
-								window.location.href='index_test.php'; 
-							});
+			//function getFbUserData(){
+					FB.api('/me', {fields: 'id,name,email'},
+					function (response) {
+					//console.log(JSON.stringify(response));
+					console.log('id : '+response.id);
+					console.log('Email : '+response.email);
+					console.log('Name : '+response.name);
+						/*document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
+						document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
+						document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
+						document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
+						*/
+						$.post('_ajax/login_facebook.php', {oauth_provider:'facebook',userData: JSON.stringify(response)}, function(data){ return true; }).done(function(data) {
+							//console.log(data);
+							window.location.href='index_test.php'; 
 						});
-					//}
-				  } else {
-					// The person is not logged into this app or we are unable to tell. 
-					console.log('You are not connected yet.');
-				  }
-			}, {scope: 'public_profile,email'});
+					});
+				//}
+			// } else {
+				//The person is not logged into this app or we are unable to tell. 
+				// console.log('You are not connected yet.');
+			// }
 			return false;
 		}
 	</script>
 	<script>
 	  window.fbAsyncInit = function() {
 		FB.init({
-		  appId      : '152343107105833',
+		  appId      : '1289689755102737',
 		  cookie     : true,
 		  xfbml      : true,
-		  version    : 'v12.0'
+		  version    : 'v15.0'
 		});
 		
 	<?php if(isset($_GET["action"])) {
@@ -323,6 +317,8 @@ if($_POST) {
 </style>
 </head>
 <body class="login-register-wrap">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0&appId=1289689755102737&autoLogAppEvents=1" nonce="uD8S6Aia"></script>
 
 	<!-- login register -->
 	<div class="login-register-wrap-home">
@@ -335,9 +331,10 @@ if($_POST) {
 					echo $message;
 				?>
 				</div>
-				<button class="loginBtn loginBtn--facebook" onClick="logInWithFacebook()">
+				<div class="fb-login-button" data-width="" data-size="large" data-scope="email" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" data-onlogin="logInWithFacebook()"></div>
+				<!--<button class="loginBtn loginBtn--facebook" onClick="logInWithFacebook()">
 				  Connexion via Facebook
-				</button>
+				</button>-->
 				<button id="loginBtn" class=" loginBtn--google" style="margin-top:15px">
 				  Connexion via Google
 				</button>
@@ -370,6 +367,17 @@ if($_POST) {
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7YRDS0SQ0P"></script>
 <script>
+	window.onload = function() {
+		setTimeout(function() {
+		  if ( typeof(window.google_jobrunner) === "undefined" ) {
+			console.log("ad blocker installed");
+			//alert("Pour vous connecter avec Facebook veuillez désactiver votre bloqueur de publicité svp.");
+		  } else {
+			console.log("no ad blocking found.");
+		  }
+		}, 10000);
+	};
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
