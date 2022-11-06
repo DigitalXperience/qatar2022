@@ -308,7 +308,7 @@ foreach($rencontres_nc as $r) { ?>
 				<?php } ?>
 			</select>
 		</span>
-		<p class="result"><b><?php /*echo $r->jour;*/ ?><!--.--> <?php echo $r->date; ?> - <?php echo $r->heure; ?> au <?php echo utf8_encode($r->nom_stade); ?></b></p>
+		<p class="result"><b><?php /*echo $r->jour;*/ ?><!--.--> <?php echo $r->date; ?> - <?php echo $r->heure; ?> <!--au <?php echo utf8_encode($r->nom_stade); ?>--></b></p>
 		<input type="hidden" name="<?php echo $r->id; ?>" value="<?php echo $r->date_heure; ?>">
 	</div>
 	<hr />

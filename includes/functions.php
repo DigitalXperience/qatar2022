@@ -384,3 +384,36 @@ function createCode()
 {
 	return rand(0000,9999);
 }
+
+/*
+ * 
+ */
+function sendSMS($message, $recp)
+{
+	$curl = curl_init();
+
+	curl_setopt_array($curl, array(
+	  CURLOPT_URL => 'https://sms.etech-keys.com/ss/sendsms.php',
+	  CURLOPT_RETURNTRANSFER => true,
+	  CURLOPT_ENCODING => '',
+	  CURLOPT_MAXREDIRS => 10,
+	  CURLOPT_TIMEOUT => 0,
+	  CURLOPT_FOLLOWLOCATION => true,
+	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	  CURLOPT_CUSTOMREQUEST => 'POST',
+	  CURLOPT_POSTFIELDS => array(  'sender_id' => '33export','destinataire' => '237'.$recp,'message' => $message,'login' => '699124249',
+									'password' => 'as!69@81','ext_id' => '12345','programmation' => '0'),
+	));
+
+	$response = curl_exec($curl);
+
+	curl_close($curl);
+	echo $response;
+}
+
+function sendCodebySMS($number, $code)
+{
+	//$code = createCode();
+	$message = "Votre code de connexion est le : $code";
+	sendSMS($message, $number);
+}

@@ -1,8 +1,13 @@
 <?php 
 $message = "";
 if(isset($_GET["message"])) {
-	$_GET['message'] == "error1"; 
-	$message = "Votre numéro doit avoir 9 chiffres.";
+	$msg = $_GET['message'];
+	if($msg == "error1")
+		$message = "Entrez vos informations.";
+	elseif($msg == "error2")
+		$message = "Vous devez entrer vos informations pour participer.";
+	elseif($msg == "error3")
+		$message = "Votre numéro doit avoir 9 chiffres.";
 }
 ?>
 <!DOCTYPE html>
@@ -218,7 +223,7 @@ if(isset($_GET["message"])) {
 				<button class="loginBtn loginBtn--facebook" onClick="logInWithFacebook()">
 				  Connexion via Facebook
 				</button>-->
-				<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="true" data-use-continue-as="true"></div>
+				<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
 				<button id="loginBtn" class=" loginBtn--google" style="margin-top:15px">
 				  Connexion via Google
 				</button>
