@@ -324,7 +324,7 @@ if($_POST) {
 	<div class="login-register-wrap-home">
 		<div class="container">
 			<div class="content">	
-				<h1><img src="img/33_transparent_2.png" alt="" height="120px" width="120px"></h1>
+				<h1><img src="img/33_transparent_1.png" alt="" height="120px" width="120px"></h1>
 				<h6>33 Export Foot</h6>	
 				<div id="response">
 					<?php //echo $live_url;
