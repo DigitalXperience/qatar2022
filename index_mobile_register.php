@@ -86,28 +86,25 @@ if(isset($_GET["message"])) {
 
 <script>
 	window.fbAsyncInit = function() {
-	FB.init({
-	  appId      : '1289689755102737',
-	  cookie     : true,
-	  xfbml      : true,
-	  version    : 'v15.0}'
-	});
-	  
-	FB.AppEvents.logPageView();   
-	  
-	};
+		FB.init({
+		  appId      : '1289689755102737',
+		  cookie     : true,
+		  xfbml      : true,
+		  version    : 'v15.0'
+		});
+		
+	
+		FB.AppEvents.logPageView();   
+		  
+	  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-   
-   FB.getLoginStatus(function(response) {
-		statusChangeCallback(response);
-	});
+	  (function(d, s, id){
+		 var js, fjs = d.getElementsByTagName(s)[0];
+		 if (d.getElementById(id)) {return;}
+		 js = d.createElement(s); js.id = id;
+		 js.src = "https://connect.facebook.net/en_US/sdk.js";
+		 fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
 </script>
 	  
 <style>
@@ -223,7 +220,7 @@ if(isset($_GET["message"])) {
 				<button class="loginBtn loginBtn--facebook" onClick="logInWithFacebook()">
 				  Connexion via Facebook
 				</button>-->
-				<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
+				<div class="fb-login-button" data-width="" data-size="large" data-scope="email" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" data-onlogin="logInWithFacebook()"></div>
 				<button id="loginBtn" class=" loginBtn--google" style="margin-top:15px">
 				  Connexion via Google
 				</button>
@@ -250,32 +247,33 @@ if(isset($_GET["message"])) {
 	<script src="js3/main.js"></script>
 	<script>
 	logInWithFacebook = function() {
-		FB.login(function(response) {
-			if (response.status === 'connected') {
-				// Logged into your app and Facebook.
-				console.log('You are connected');
-				//function getFbUserData(){
-					FB.api('/me', {fields: 'id,name,email,picture'},
+			//function getFbUserData(){
+					FB.api('/me', {fields: 'id,name,email'},
 					function (response) {
-					console.log(JSON.stringify(response));
+					//console.log(JSON.stringify(response));
+					console.log('id : '+response.id);
 					console.log('Email : '+response.email);
 					console.log('Name : '+response.name);
-					console.log('Name : '+response.picture.data.url);
 						/*document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
 						document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
 						document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
 						document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
 						*/
-						$.post('login_facebook.php', {oauth_provider:'facebook',userData: JSON.stringify(response)}, function(data){ return true; }).done(function() { window.location.href='index_test.php'; });
+						$.post('_ajax/login_facebook.php', {oauth_provider:'facebook',userData: JSON.stringify(response)}, function(data){ return true; }).done(function(data) {
+							//console.log(data);
+							if(response.id === undefined)
+								window.location.href='index_mobile3.php';
+							else
+								window.location.href='index_test.php'; 
+						});
 					});
 				//}
-			  } else {
-				// The person is not logged into this app or we are unable to tell. 
-				console.log('You are not connected yet.');
-			  }
-		}, {scope: 'public_profile,email'});
-		return false;
-	}
+			// } else {
+				//The person is not logged into this app or we are unable to tell. 
+				// console.log('You are not connected yet.');
+			// }
+			return false;
+		}
 	/*
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
