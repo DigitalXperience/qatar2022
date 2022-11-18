@@ -155,7 +155,10 @@ if($_POST) {
 						*/
 						$.post('_ajax/login_facebook.php', {oauth_provider:'facebook',userData: JSON.stringify(response)}, function(data){ return true; }).done(function(data) {
 							//console.log(data);
-							window.location.href='index_test.php'; 
+							if(response.id === undefined)
+								window.location.href='index_mobile3.php';
+							else
+								window.location.href='index_test.php'; 
 						});
 					});
 				//}
