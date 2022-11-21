@@ -11,7 +11,7 @@ include_once 'includes/functions.php';
 
 // Se rassurer que le mec est connecté. Sinon on le renvoie à l'authentification. Si oui on récupère les données de connexion : Mode d'authentification, id, 
 if(!isset($_SESSION['id'])) {
-	header('Location: https://www.33export-foot.com/can2022/index_mobile3.php');
+	header('Location: https://www.33export-foot.com/qatar2022/index_mobile3.php');
 	die();	
 }
 
@@ -187,7 +187,7 @@ $mysqli->close();
 			</header>
 			<div id="main" role="main">
 			<header>
-				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
+				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
 				<?php include('top_menu_mobile.php'); ?>
 			</header>
 			<style type="text/css">
