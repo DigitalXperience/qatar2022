@@ -179,34 +179,7 @@ if ($result2 = $mysqli->query("SELECT u.id, MAX(pr.id), pr.rencontre_id, u.oauth
 					});
 				}
 			});
-			// Set the date we're counting down to
-			var countDownDate = new Date("Nov 20, 2022 17:00:00").getTime();
 
-			// Update the count down every 1 second
-			var x = setInterval(function() {
-
-			  // Get today's date and time
-			  var now = new Date().getTime();
-				
-			  // Find the distance between now and the count down date
-			  var distance = countDownDate - now;
-				
-			  // Time calculations for days, hours, minutes and seconds
-			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-				
-			  // Output the result in an element with id="demo"
-			  document.getElementById("demo").innerHTML = "<h1 style='font-size: 2.5em;'>" + hours + "h "
-			  + minutes + "m " /*+ seconds + "s "*/ + "</h1>";
-				
-			  // If the count down is over, write some text 
-			  if (distance < 0) {
-				clearInterval(x);
-				document.getElementById("demo").innerHTML = "C'est Parti!";
-			  }
-			}, 1000);
 		</script>
 		<script src="https://www.33export-foot.com/jotokyo/webpushr-sw.js"></script>
 
@@ -287,7 +260,7 @@ if ($result2 = $mysqli->query("SELECT u.id, MAX(pr.id), pr.rencontre_id, u.oauth
 	<div class="">
 		<!--Journée n°31 -->
 		<div class="matchScheduleTitle">
-			<h1>Le tournoi commence dans </h1>
+			<h1>Cliquez sur le ballon pour pronostiquer</h1>
 		</div>
 		
 		<div class=" " style="margin-top: 20px; margin-bottom: 20px; font-size:0.9em">
@@ -297,34 +270,32 @@ if ($result2 = $mysqli->query("SELECT u.id, MAX(pr.id), pr.rencontre_id, u.oauth
 					left join competitions c on c.id = r.id_competition 
 					where p.utilisateur_id = ".$id." and c.id = ".$competition['id']." 
 					group by p.utilisateur_id;";
-			//echo $mysql;			
-			if ($result = $mysqli->query($mysql)) {
-				
-				if( $result->num_rows > 0 ){
-					/* fetch object array */
-					while ($row = $result->fetch_row()) {
-						if(is_null($row[0]))
-							$pts = 0;
-						else
-							$pts = $row[0];
-					}				
-				} else {
-					$pts = 0;
-				}
-				
-				/* free result set */
-				$result->close();
-			} else $pts = 0;
+		//echo $mysql;			
+		if ($result = $mysqli->query($mysql)) {
+			
+			if( $result->num_rows > 0 ){
+				/* fetch object array */
+				while ($row = $result->fetch_row()) {
+					if(is_null($row[0]))
+						$pts = 0;
+					else
+						$pts = $row[0];
+				}				
+			} else {
+				$pts = 0;
+			}
+			
+			/* free result set */
+			$result->close();
+		} else $pts = 0;
 		
 		?><hr />
 		<div style="<?php if($idcompetitions == $competition['id']) { ?>background-color: non;<?php } ?> padding: 0.3em;">
-			<div id="demo" class="matchScheduleTitle">
-			</div>
 			<a href="https://www.33export-foot.com/qatar2022/index_pronostics_mobile3.php?idcompetition=<?php echo $competition['id']; ?>">
-				<div id="" class="matchScheduleTitle">
-					<!--<img src="<?php echo $competition['image']; ?>" class="exterieur" alt="" style="height:100px;cursor:pointer" >-->
-					<h1 style="cursor: pointer;width: 99%;font-family:'canal-icons';font-size: 6em;text-transform: unset;">a</h1>
-				</div>
+			<div class="matchScheduleTitle">
+				<!--<img src="<?php echo $competition['image']; ?>" class="exterieur" alt="" style="height:100px;cursor:pointer" >-->
+				<h1 style="cursor: pointer;width: 99%;font-family:'canal-icons';font-size: 6em;text-transform: unset;">a</h1>
+			</div>
 			</a>
 		</div>	
 		<?php } ?>
@@ -348,11 +319,11 @@ if ($result2 = $mysqli->query("SELECT u.id, MAX(pr.id), pr.rencontre_id, u.oauth
 <script type="text/javascript">
 window.fbAsyncInit = function() {
 			FB.init({
-			  appId      : '1289689755102737',
+			  appId      : '152343107105833',
 			  cookie     : true,  // enable cookies to allow the server to access 
 								  // the session
 			  xfbml      : true,  // parse social plugins on this page
-			  version    : 'v15.0' // use graph api version 2.8
+			  version    : 'v12.0' // use graph api version 2.8
 			});
 
 			// Now that we've initialized the JavaScript SDK, we call 

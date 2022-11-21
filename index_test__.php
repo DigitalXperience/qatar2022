@@ -198,7 +198,7 @@ if ($result2 = $mysqli->query("SELECT u.id, MAX(pr.id), pr.rencontre_id, u.oauth
 			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 				
 			  // Output the result in an element with id="demo"
-			  document.getElementById("demo").innerHTML = "<h1 style='font-size: 2.5em;'>" + hours + "h "
+			  document.getElementById("demo").innerHTML = "<h1 style='font-size: 2.5em;'>" + days + "jrs " + hours + "h "
 			  + minutes + "m " /*+ seconds + "s "*/ + "</h1>";
 				
 			  // If the count down is over, write some text 
