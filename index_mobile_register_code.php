@@ -136,9 +136,9 @@ if(isset($_POST)) {
 				<?php echo $message; ?>
 				</div>
 				
-				<form id="form_register" style="margin-top:15px" action="index_mobile3.php" method="POST">
+				<form id="form_register" style="margin-top:15px" action="login_infos.php" method="POST">
 					<div id="name">Entrez le code que vous avez reçu par SMS</div>
-					<input type="text" id="numero" value="<?php echo $numero; ?>" placeholder="Votre Numero" name="numero" disabled >
+					<input type="text" id="numero" value="<?php echo $numero; ?>" name="numero" readonly >
 					<input type="password" id="code" placeholder="****" name="code"> 
 					<button class="button-default" style="background-color: #B51729;"> Confirmer</button>
 					<h6>Vous avez déjà un compte ? <a href="index_mobile3.php">Connexion</a></h6>
