@@ -382,7 +382,7 @@ function getAnswers()
  */
 function createCode()
 {
-	return rand(0000,9999);
+	return rand(1000,9999);
 }
 
 /*
@@ -408,7 +408,7 @@ function sendSMS($message, $recp)
 	$response = curl_exec($curl);
 
 	curl_close($curl);
-	echo $response;
+	//echo $response;
 }
 
 function sendCodebySMS($number, $code)
