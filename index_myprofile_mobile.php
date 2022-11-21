@@ -158,7 +158,7 @@ $mysqli->close();
 			
 			<div id="main" role="main">
 			<header>
-				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
+				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
 				<?php include('top_menu_mobile.php'); ?>
 			</header>
 <div class="rankHolder">
@@ -212,9 +212,9 @@ $mysqli->close();
 	</div>
 	<p class="latestBets">
 		<?php if(isset($_GET['user'])) { ?>
-		<i>d</i><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_pronostics_user_mobile.php?user=<?php echo $_GET['user']; ?>&idcompetition=<?php echo $idcompetitions; ?>">Voir mes pronostics précédents</a><!---->
+		<i>d</i><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_pronostics_user_mobile.php?user=<?php echo $_GET['user']; ?>&idcompetition=<?php echo $idcompetitions; ?>">Voir mes pronostics précédents</a><!---->
 		<?php } else { ?>
-		<i>d</i><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_mypronostics_user_mobile.php?idcompetition=<?php echo $idcompetitions; ?>">Voir mes pronostics précédents</a><!--https://prono-foot-33export.herokuapp.com/index_mypronostics_user_mobile.php-->
+		<i>d</i><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_mypronostics_user_mobile.php?idcompetition=<?php echo $idcompetitions; ?>">Voir mes pronostics précédents</a><!--https://prono-foot-33export.herokuapp.com/index_mypronostics_user_mobile.php-->
 		<?php } ?>
 	</p>
 
@@ -488,7 +488,7 @@ var Trophy =
 				e.preventDefault();
 				FB.logout(function(response) {
 				   // Person is now logged out
-				   window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_mobile3.php?action=deconnexion';
+				   window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_mobile3.php?action=deconnexion';
 				});
 				/*
 				FB.api('/me/permissions', 'delete', function()
@@ -506,7 +506,7 @@ var Trophy =
 		$('#btn_logout').off('click').on('click', function(e) {
 				e.preventDefault();
 				//alert("Il essaie de se deconnecter sans facebook");
-			 window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_mobile3.php?action=deconnexion';
+			 window.location.href='https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_mobile3.php?action=deconnexion';
 		});
 		<?php } ?>
 	});
