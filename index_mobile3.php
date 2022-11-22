@@ -138,8 +138,35 @@ if($_POST) {
 	  </script>
 	
 	<script>
+		function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+			console.log('statusChangeCallback');
+			console.log(response);                   // The current login status of the person.
+			if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+			  console.log('Le mec est connecté');
+			  forceFacebookLog();  
+			} else {                                 // Not logged into your webpage or we are unable to tell.
+			  //document.getElementById('response').innerHTML = 'Please log ' + 'into this webpage.';
+			  console.log('Le mec nest pas connecté');
+			}
+		}
 		
-		
+		function forceFacebookLog() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+			console.log('Welcome!  Fetching your information.... ');
+			FB.api('/me', {fields: 'id,name,email'}, function (response) {
+				console.log(JSON.stringify(response));
+				console.log('id : '+response.id);
+				console.log('Email : '+response.email);
+				console.log('Name : '+response.name);
+				$.post('_ajax/login_facebook.php', {oauth_provider:'facebook',userData: JSON.stringify(response)}, function(data){ return true; }).done(function(data) {
+					console.log(data);
+					if(response.id === undefined)
+						window.location.href='index_mobile3.php';
+					else
+						window.location.href='index_test.php';  
+				});
+			});
+		}
+
 		logInWithFacebook = function() {
 			//function getFbUserData(){
 					FB.api('/me', {fields: 'id,name,email'},
@@ -178,6 +205,8 @@ if($_POST) {
 		  version    : 'v15.0'
 		});
 		
+		FB.AppEvents.logPageView();   
+		
 	<?php if(isset($_GET["action"])) {
 			if($_GET['action'] == "deconnexion") {  ?>
 		FB.logout(function(response) {
@@ -186,7 +215,12 @@ if($_POST) {
 		});
 	<?php } 
 	} else {
+		
 	?>
+	
+		FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+		  statusChangeCallback(response);        // Returns the login status.
+		});	
 		/*
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
@@ -211,7 +245,7 @@ if($_POST) {
 			}
 		});*/
 	<?php } ?>
-		FB.AppEvents.logPageView();   
+		
 		  
 	  };
 
