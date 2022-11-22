@@ -17,7 +17,11 @@ if(!isset($_SESSION['id'])) {
 
 if(isset($_SESSION['idcompetitions'])) {
 	$idcompetitions = $_SESSION['idcompetitions'];
-} //else $idcompetitions = 2;
+} else $idcompetitions = 1;
+
+if(isset($_GET['idcompetition'])) {
+	$idcompetitions = $_GET['idcompetition'];
+}
 
 
 
@@ -137,8 +141,7 @@ $mysqli->close();
 
 					canvasUrl		: "https://apps.facebook.com/footballpronostic",
 					locale			: 'fr_FR',
-					signedRequest	: '<?php echo $_SESSION['signedRequest']; ?>',
-					userId			: '<?php echo $_SESSION['idfb']; ?>',
+					
 					mode			: 'website',
 					useCookie		:	true
 				}
@@ -252,7 +255,7 @@ if ($pronos) {
 <script>
 $(document).ready(function(){
 
-	$('#rounds_carousel').carouFredSel({
+	/* $('#rounds_carousel').carouFredSel({
 		circular: false,
 		infinite: false,
 		responsive: true,
@@ -267,7 +270,7 @@ $(document).ready(function(){
 			onMouse: false,
 			onTouch: false
 		}
-	});
+	}); */
 
     $('.jsRoundBtn').off('click').on('click', function(e) {
         e.preventDefault();
