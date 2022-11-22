@@ -11,7 +11,7 @@ include_once 'includes/functions.php';
 
 // Se rassurer que le mec est connecté. Sinon on le renvoie à l'authentification. Si oui on récupère les données de connexion : Mode d'authentification, id, 
 if(!isset($_SESSION['id'])) {
-	header('Location: https://www.33export-foot.com/can2022/index_mobile3.php');
+	header('Location: https://www.33export-foot.com/qatar2022/index_mobile3.php');
 	die();	
 }
 
@@ -153,7 +153,7 @@ $mysqli->close();
 				fb: {
 					appId			: "152343107105833",
 					version			: "v12.0",
-					callbackUrl		: "https://www.33export-foot.com/can2022/",
+					callbackUrl		: "https://www.33export-foot.com/qatar2022/",
 
 					locale			: 'fr_FR',
 					signedRequest	: '',
@@ -204,7 +204,7 @@ $mysqli->close();
 			<div id="main" role="main">
 			<header>
 				<header>
-				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/can2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
+				<a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_test.php?idcompetition=<?php echo $idcompetitions; ?>" class="logo"></a>
 				<?php include('top_menu_mobile.php'); ?>
 			</header>
 			</header>
