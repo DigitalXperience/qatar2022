@@ -212,7 +212,7 @@ $mysqli->close();
 	</div>
 	<p class="latestBets">
 		<?php if(isset($_GET['user'])) { ?>
-		<i>d</i><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_pronostics_user_mobile.php?user=<?php echo $_GET['user']; ?>&idcompetition=<?php echo $idcompetitions; ?>">Voir mes pronostics précédents</a><!---->
+		<i>d</i><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_pronostics_user_mobile.php?user=<?php echo $_GET['user']; ?>&idcompetition=<?php echo $idcompetitions; ?>">Voir ses pronostics précédents</a><!---->
 		<?php } else { ?>
 		<i>d</i><a href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/qatar2022/index_mypronostics_user_mobile.php?idcompetition=<?php echo $idcompetitions; ?>">Voir mes pronostics précédents</a><!--https://prono-foot-33export.herokuapp.com/index_mypronostics_user_mobile.php-->
 		<?php } ?>
